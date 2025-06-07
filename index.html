@@ -1,1 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative365 - Strategy for Tradies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Oswald:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Nunito Sans', sans-serif;
+      background-color: #FFFFFF;
+      color: #000000;
+    }
+    header, section, footer {
+      padding: 2rem;
+    }
+    h1, h2, h3 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+      line-height: 1.1em;
+      text-align: center;
+      font-size: 2.4rem;
+    }
+    .hero {
+      background-color: #383838;
+      color: #FFFFFF;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .hero p {
+      font-size: 1.6rem;
+      line-height: 1.4em;
+    }
+    .cta-btn {
+      background-color: #78C976;
+      color: #000;
+      padding: 1rem 2rem;
+      font-size: 1.4rem;
+      margin: 1rem;
+      border: none;
+      cursor: pointer;
+    }
+    .tile-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .tile {
+      background: #f4f4f4;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+    .tile-content {
+      display: none;
+      padding-top: 1rem;
+    }
+    .about {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .about img {
+      max-width: 150px;
+      border-radius: 8px;
+    }
+    .about p {
+      font-size: 1.4rem;
+      line-height: 1.4em;
+    }
+    .who-we-help ul {
+      list-style: none;
+      padding: 0;
+      font-size: 1.4rem;
+      line-height: 1.4em;
+    }
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+    }
+    footer a {
+      color: #78C976;
+      margin: 0 1rem;
+    }
+    @media (min-width: 768px) {
+      .tile-grid {
+        flex-direction: row;
+        justify-content: space-around;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1>GET MORE LEADS.<br>KEEP MORE CUSTOMERS.<br>ELEVATE YOUR BUSINESS.</h1>
+    <p>Generate predictable cashflow through consistent customer acquisition & retention strategies.</p>
+    <button class="cta-btn">👉 Book your free 30-minute strategy call</button>
+    <button class="cta-btn">⬇️ Explore Services</button>
+  </section>
 
+  <section>
+    <h2>What do you need help with?</h2>
+    <div class="tile-grid">
+      <div class="tile" onclick="toggleContent('leads')">
+        GET MORE LEADS
+        <div class="tile-content" id="leads">
+          <p>Ads, Websites, Landing Pages, Lead Gen Funnels.</p>
+        </div>
+      </div>
+      <div class="tile" onclick="toggleContent('customers')">
+        KEEP MORE CUSTOMERS
+        <div class="tile-content" id="customers">
+          <p>Email Campaigns, Customer Success Journeys, Review requests, Referrals.</p>
+        </div>
+      </div>
+      <div class="tile" onclick="toggleContent('elevate')">
+        ELEVATE YOUR BUSINESS
+        <div class="tile-content" id="elevate">
+          <p>Business Coaching, Process Automation, Internal Ops, Time Savings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>How do you want to work?</h2>
+    <div class="tile-grid">
+      <div class="tile">
+        ✅ Done-For-You
+        <div class="tile-content" style="display: block;">
+          <p>We build and manage the systems. You get the results.</p>
+        </div>
+      </div>
+      <div class="tile">
+        ✅ Strategy & Consulting
+        <div class="tile-content" style="display: block;">
+          <p>We guide and coach you to do it yourself — with a clear plan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <img src="https://github.com/mmp03patane/creative/blob/main/PROFILE%20PHOTO%203.PNG?raw=true" alt="Michael Patane">
+    <div>
+      <h2>About me</h2>
+      <p>It’s Michael Patane, and I run Creative365 — a business consultancy that specialises in helping residential service businesses build predictable revenue streams through modern marketing and systems.</p>
+      <p>I’ve worked with some of the biggest companies in Australia to build scalable growth systems:</p>
+      <p>At GLG, I clocked up hundreds of consulting hours across various niches helping service-based businesses with anything from franchising advice to lead generation. Electricians and plumbers to solar installers, gardeners, pet sitters, HVAC technicians, painters, and general trades, I've seen it all...</p>
+      <p>At Jim’s Group, I helped streamline onboarding operations for franchisees. I hosted a monthly lecture teaching franchisees how to use technology to quote, schedule and invoice clients. I worked closely with mowing, cleaning, handyman and fencing franchises.</p>
+      <p>At MYOB, I assisted medium sized businesses to engage digitally and drive adoption through education. I focused on internal efficiencies to elevate customer success experiences.</p>
+      <p>Creative365 exists for one reason: to help hardworking service businesses like yours grow faster, run smoother, and make more money — without the guesswork.</p>
+    </div>
+  </section>
+
+  <section class="who-we-help">
+    <h2>Who we work with</h2>
+    <ul>
+      <li>Plumbers</li>
+      <li>Electricians</li>
+      <li>Cleaners</li>
+      <li>Gardeners & Landscapers</li>
+      <li>HVAC Specialists</li>
+      <li>Dog Walkers & Pet Sitters</li>
+      <li>Painters, Pool Cleaners, Handymen… and more.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Book your free 30-min strategy call</h2>
+    <p>I’ll review your setup, spot growth leaks, and show you how to scale without wasting time or money.</p>
+    <button class="cta-btn">📅 Pick Your Time</button>
+  </section>
+
+  <footer>
+    <p>🧠 Creative365 — Strategy-First Growth for Local Service Businesses</p>
+    <p><a href="#">Home</a> | <a href="#">About</a> | <a href="#">Services</a> | <a href="#">Book Call</a> | <a href="https://www.linkedin.com/in/michaelpatane/">LinkedIn</a></p>
+  </footer>
+
+  <script>
+    function toggleContent(id) {
+      const content = document.getElementById(id);
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        document.querySelectorAll('.tile-content').forEach(el => el.style.display = 'none');
+        content.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
