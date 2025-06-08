@@ -14,170 +14,147 @@
     }
 
     header {
-      background-color: #000000;
+      background-color: #000;
+      color: #fff;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       padding: 1rem 2rem;
     }
 
-    header img.logo {
+    .logo {
       height: 40px;
     }
 
     nav a {
-      color: white;
       font-family: 'Oswald', sans-serif;
-      font-weight: bold;
-      font-size: 1rem;
+      color: #fff;
       text-decoration: none;
+      font-size: 1rem;
       text-transform: uppercase;
-    }
-
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      align-items: flex-end;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background-color: white;
-      margin: 4px 0;
+      font-weight: normal;
     }
 
     .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
       text-align: center;
-      padding: 6rem 2rem;
+      padding: 0 1rem;
     }
 
     .hero h1 {
       font-family: 'Oswald', sans-serif;
-      font-weight: bold;
-      text-transform: uppercase;
-      font-size: 3.4rem;
+      font-size: 3.5rem;
       line-height: 1.1em;
-      margin-bottom: 3rem;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    .form-container {
+    .form-section {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1rem;
+      padding: 1rem;
     }
 
-    label {
-      font-size: 1.4rem;
+    label, select {
+      font-size: 1.2rem;
     }
 
     select {
-      padding: 0.8rem;
-      font-size: 1.2rem;
-      width: 280px;
+      padding: 0.5rem;
+      font-family: 'Nunito Sans', sans-serif;
+      width: 100%;
+      max-width: 400px;
     }
 
     button {
-      margin-top: 2rem;
-      padding: 1rem 2rem;
+      margin-top: 1.5rem;
       background-color: #78C976;
+      color: #fff;
       border: none;
-      color: white;
+      padding: 1rem 2rem;
       font-family: 'Oswald', sans-serif;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       text-transform: uppercase;
-      border-radius: 12px;
+      border-radius: 10px;
       cursor: pointer;
     }
 
-    @media (max-width: 768px) {
+    @media screen and (max-width: 768px) {
       header {
-        flex-direction: row;
-        justify-content: center;
-        position: relative;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
       }
 
-      nav.desktop {
-        display: none;
+      .logo {
+        height: 30px;
+        margin-bottom: 0.5rem;
       }
 
-      .hamburger {
+      nav {
         display: flex;
-        position: absolute;
-        right: 20px;
-        top: 20px;
+        justify-content: center;
+        margin-top: 0.5rem;
       }
 
-      .mobile-menu {
-        display: none;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        background-color: #000;
-        padding: 1rem;
-        border-radius: 8px;
+      nav a {
+        font-weight: normal;
       }
 
-      .mobile-menu a {
-        color: white;
-        text-decoration: none;
-        font-family: 'Oswald', sans-serif;
-        text-transform: uppercase;
-        font-size: 1rem;
+      .hero {
+        height: auto;
+        padding-top: 3rem;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+        margin-top: 0;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <img class="logo" src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" />
-    <nav class="desktop">
+    <img src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" class="logo" />
+    <nav>
       <a href="#contact">Contact</a>
     </nav>
-    <div class="hamburger" onclick="toggleMobileMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#contact">Contact</a>
-    </div>
   </header>
 
   <section class="hero">
     <h1>What Does Your Business Need Most?</h1>
-    <form class="form-container" action="results.html" method="GET">
+    <div class="form-section">
       <label for="need">It needs:</label>
-      <select name="need" id="need" required>
-        <option value="more-leads">More leads (Facebook Ads, Google Ads, Landing Pages, Website Builds)</option>
-        <option value="customer-retention">More repeat customers (Email Campaigns, Reviews, Referrals)</option>
-        <option value="better-systems">Better systems & processes (Quoting, Scheduling, Automation, Team Tools)</option>
+      <select id="need">
+        <option value="leads">More leads (Facebook Ads, Google Ads, Websites, Funnels)</option>
+        <option value="customers">More repeat customers (Email campaigns, Reviews, Referrals)</option>
+        <option value="systems">Streamlined internal systems (Processes, Automation, Team Efficiency)</option>
       </select>
 
       <label for="approach">I prefer:</label>
-      <select name="approach" id="approach" required>
-        <option value="dfy">Done-for-you services</option>
+      <select id="approach">
+        <option value="dfy">A done-for-you service</option>
         <option value="consulting">Advice and consultancy so I can do things myself</option>
       </select>
 
-      <button type="submit">Here's What To Do Next...</button>
-    </form>
+      <button onclick="showNext()">Here's what to do next...</button>
+    </div>
   </section>
 
   <script>
-    function toggleMobileMenu() {
-      const menu = document.getElementById("mobileMenu");
-      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    function showNext() {
+      const need = document.getElementById('need').value;
+      const approach = document.getElementById('approach').value;
+      window.location.href = `next.html?need=${need}&approach=${approach}`;
     }
   </script>
 </body>
