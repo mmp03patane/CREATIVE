@@ -3,94 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Creative365 Intake</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Nunito+Sans&display=swap" rel="stylesheet">
+  <title>Business Needs Intake Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Oswald:wght@700&display=swap" rel="stylesheet" />
   <style>
     body {
-      margin: 0;
+      background-color: #ffffff;
       font-family: 'Nunito Sans', sans-serif;
-      background-color: #383838;
-      color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      color: #000000;
+      margin: 0;
       padding: 2rem;
     }
-
     h1 {
       font-family: 'Oswald', sans-serif;
-      font-size: 2.4rem;
+      font-size: 2.8rem;
       font-weight: bold;
+      line-height: 1.1em;
       text-transform: uppercase;
       text-align: center;
-      line-height: 1.1em;
-      margin-bottom: 2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
     }
-
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
     label {
-      display: block;
-      margin: 1.5rem 0 0.5rem;
       font-size: 1.4rem;
     }
-
-    select, button {
-      width: 100%;
-      max-width: 400px;
-      padding: 1rem;
-      font-size: 1.4rem;
-      border: none;
-      border-radius: 4px;
-      margin-bottom: 1.5rem;
-    }
-
     select {
-      background-color: #ffffff;
-      color: #000000;
+      padding: 0.75rem;
+      font-size: 1.2rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
     }
-
     button {
       background-color: #78C976;
-      color: #000000;
+      color: #ffffff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
       font-weight: bold;
+      text-transform: uppercase;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
     }
-
     @media (max-width: 600px) {
       h1 {
-        font-size: 2rem;
+        font-size: 2.4rem;
+        padding: 0 1rem;
       }
     }
   </style>
 </head>
 <body>
   <h1>What Does Your Business Need Most?</h1>
-
-  <form id="intakeForm">
+  <form id="needsForm">
     <label for="need">It needs:</label>
-    <select id="need" required>
-      <option value="leads">More leads</option>
-      <option value="retention">Better customer retention</option>
-      <option value="operations">Smoother operations</option>
+    <select id="need" name="need">
+      <option value="more-leads">More leads</option>
+      <option value="better-retention">Better customer retention</option>
+      <option value="smoother-operations">Smoother operations</option>
     </select>
 
     <label for="preference">I want:</label>
-    <select id="preference" required>
+    <select id="preference" name="preference">
       <option value="dfy">A done-for-you service</option>
       <option value="consulting">Advice and consultancy</option>
     </select>
 
-    <button type="submit">Next</button>
+    <button type="submit">Here's what to do next...</button>
   </form>
 
   <script>
-    document.getElementById('intakeForm').addEventListener('submit', function(event) {
+    document.getElementById("needsForm").addEventListener("submit", function(event) {
       event.preventDefault();
-      const need = document.getElementById('need').value;
-      const preference = document.getElementById('preference').value;
-      const queryString = `?need=${need}&preference=${preference}`;
-      window.location.href = `results.html${queryString}`;
+      const need = document.getElementById("need").value;
+      const preference = document.getElementById("preference").value;
+      window.location.href = `results.html?need=${need}&preference=${preference}`;
     });
   </script>
 </body>
 </html>
-
