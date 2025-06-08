@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Creative365 | What Does Your Business Need Most?</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Oswald:wght@700&display=swap" rel="stylesheet">
+  <title>Creative365 - What Your Business Needs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Oswald:wght@700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -14,148 +15,188 @@
     }
 
     header {
-      background-color: #000;
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background-color: #000000;
+      color: #ffffff;
       padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
     }
 
     .logo {
       height: 40px;
     }
 
-    nav a {
-      font-family: 'Oswald', sans-serif;
-      color: #fff;
+    nav {
+      position: absolute;
+      right: 2rem;
+    }
+
+    .contact-link {
+      color: #ffffff;
       text-decoration: none;
-      font-size: 1rem;
-      text-transform: uppercase;
+      font-family: 'Nunito Sans', sans-serif;
+      font-weight: normal;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      background-color: white;
+      height: 3px;
+      margin: 5px 0;
+      width: 25px;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      right: 2rem;
+      top: 60px;
+      background-color: #000000;
+      padding: 1rem;
+    }
+
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
       font-weight: normal;
     }
 
     .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 90vh;
       text-align: center;
-      padding: 0 1rem;
+      padding: 4rem 2rem;
     }
 
     .hero h1 {
       font-family: 'Oswald', sans-serif;
       font-size: 3.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
       line-height: 1.1em;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 700px;
+      margin: 0 auto 2rem;
     }
 
-    .form-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem;
+    .form-group {
+      margin: 1.5rem auto;
+      text-align: left;
+      max-width: 500px;
     }
 
-    label, select {
-      font-size: 1.2rem;
-    }
-
-    select {
-      padding: 0.5rem;
+    .form-group label {
       font-family: 'Nunito Sans', sans-serif;
-      width: 100%;
-      max-width: 400px;
-    }
-
-    button {
-      margin-top: 1.5rem;
-      background-color: #78C976;
-      color: #fff;
-      border: none;
-      padding: 1rem 2rem;
-      font-family: 'Oswald', sans-serif;
       font-size: 1.4rem;
-      text-transform: uppercase;
-      border-radius: 10px;
-      cursor: pointer;
+      display: block;
+      margin-bottom: 0.5rem;
     }
 
-    @media screen and (max-width: 768px) {
+    .form-group select {
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1.4rem;
+      font-family: 'Nunito Sans', sans-serif;
+    }
+
+    .submit-btn {
+      margin-top: 2rem;
+      background-color: #78C976;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.6rem;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
       header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        justify-content: center;
       }
 
       .logo {
         height: 30px;
-        margin-bottom: 0.5rem;
       }
 
       nav {
+        display: none;
+      }
+
+      .hamburger {
         display: flex;
-        justify-content: center;
-        margin-top: 0.5rem;
-      }
-
-      nav a {
-        font-weight: normal;
-      }
-
-      .hero {
-        height: auto;
-        padding-top: 3rem;
+        position: absolute;
+        right: 1rem;
+        top: 1.2rem;
       }
 
       .hero h1 {
-        font-size: 2.2rem;
-        margin-top: 0;
+        font-size: 2.5rem;
+        margin-top: 2rem;
+      }
+
+      .mobile-menu {
+        display: none;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
-    <img src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" class="logo" />
+    <img class="logo" src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo">
     <nav>
-      <a href="#contact">Contact</a>
+      <a href="#contact" class="contact-link">CONTACT</a>
     </nav>
+    <div class="hamburger" onclick="toggleMobileMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="#contact">CONTACT</a>
+    </div>
   </header>
 
   <section class="hero">
-    <h1>What Does Your Business Need Most?</h1>
-    <div class="form-section">
-      <label for="need">It needs:</label>
-      <select id="need">
-        <option value="leads">More leads (Facebook Ads, Google Ads, Websites, Funnels)</option>
-        <option value="customers">More repeat customers (Email campaigns, Reviews, Referrals)</option>
-        <option value="systems">Streamlined internal systems (Processes, Automation, Team Efficiency)</option>
-      </select>
-
-      <label for="approach">I prefer:</label>
-      <select id="approach">
-        <option value="dfy">A done-for-you service</option>
-        <option value="consulting">Advice and consultancy so I can do things myself</option>
-      </select>
-
-      <button onclick="showNext()">Here's what to do next...</button>
-    </div>
+    <h1>WHAT DOES YOUR BUSINESS NEED MOST?</h1>
+    <form action="next.html" method="get">
+      <div class="form-group">
+        <label for="need">It needs:</label>
+        <select id="need" name="need">
+          <option value="more-leads">More Leads</option>
+          <option value="repeat-customers">More Repeat Customers</option>
+          <option value="new-website">A New Website</option>
+          <option value="streamlined-systems">Streamlined Internal Systems</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="preference">I prefer:</label>
+        <select id="preference" name="preference">
+          <option value="dfy">A Done For You Service</option>
+          <option value="consulting">Advice And Consultancy So I Can Do Things Myself</option>
+        </select>
+      </div>
+      <button class="submit-btn" type="submit">HERE'S WHAT TO DO NEXT...</button>
+    </form>
   </section>
 
   <script>
-    function showNext() {
-      const need = document.getElementById('need').value;
-      const approach = document.getElementById('approach').value;
-      window.location.href = `next.html?need=${need}&approach=${approach}`;
+    function toggleMobileMenu() {
+      const menu = document.getElementById("mobileMenu");
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "block";
+      }
     }
   </script>
 </body>
+
 </html>
