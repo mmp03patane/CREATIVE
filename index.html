@@ -28,22 +28,36 @@
       background-color: var(--black);
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       padding: 1rem 2rem;
       position: relative;
     }
 
-    .logo {
-      height: 40px;
+    .nav-left,
+    .nav-right {
+      display: flex;
+      gap: 1.5rem;
+      flex: 1;
     }
 
-    .nav-contact {
+    .nav-left a,
+    .nav-right a {
       color: var(--white);
       text-decoration: none;
       text-transform: uppercase;
       font-family: 'Nunito Sans', sans-serif;
       font-weight: 400;
-      margin-left: auto;
+    }
+
+    .logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 40px;
+    }
+
+    .logo img {
+      height: 40px;
     }
 
     .hamburger {
@@ -114,12 +128,20 @@
 
     @media (max-width: 768px) {
       header {
+        flex-direction: column;
         justify-content: center;
         position: relative;
       }
 
-      .nav-contact {
-        display: none;
+      .nav-left,
+      .nav-right {
+        justify-content: center;
+      }
+
+      .logo {
+        position: static;
+        transform: none;
+        margin: 1rem 0;
       }
 
       .hamburger {
@@ -129,7 +151,7 @@
         top: 1.2rem;
       }
 
-      .logo {
+      .logo img {
         height: 30px;
       }
 
@@ -146,8 +168,19 @@
 </head>
 <body>
   <header>
-    <img src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" class="logo" />
-    <a href="#contact" class="nav-contact">CONTACT</a>
+    <div class="nav-left">
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+    </div>
+
+    <div class="logo">
+      <img src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" />
+    </div>
+
+    <div class="nav-right">
+      <a href="#contact">Contact</a>
+    </div>
+
     <div class="hamburger">
       <div></div>
       <div></div>
