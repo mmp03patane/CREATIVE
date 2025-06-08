@@ -4,189 +4,169 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Creative365</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Nunito+Sans&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Oswald:wght@700&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --green: #78C976;
-      --black: #000;
-      --white: #fff;
-    }
-
     body {
       margin: 0;
       font-family: 'Nunito Sans', sans-serif;
-      background-color: var(--white);
-      color: var(--black);
+      background-color: #fff;
+      color: #000;
     }
 
     header {
-      background-color: var(--black);
+      background-color: #000;
+      color: #fff;
+      padding: 1.2rem;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 0.8rem 1.2rem;
-      position: relative;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
 
     .logo {
-      height: 40px;
+      height: 50px;
+      margin: 0 auto;
+      display: block;
     }
 
-    .nav-center {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
 
-    .contact-link {
-      font-family: 'Oswald', sans-serif;
-      text-transform: uppercase;
-      font-weight: normal;
-      font-size: 1rem;
-      color: var(--white);
+    nav a {
       text-decoration: none;
-      margin-right: 10px;
-      position: relative;
-      right: 10px;
+      color: #fff;
+      font-weight: normal;
+      text-transform: uppercase;
+      font-family: 'Oswald', sans-serif;
     }
 
     .hamburger {
       display: none;
       flex-direction: column;
-      justify-content: center;
       cursor: pointer;
-      height: 20px;
+      gap: 4px;
     }
 
-    .hamburger div {
-      background-color: var(--white);
-      height: 2px;
-      margin: 3px 0;
-      width: 22px;
-      opacity: 0.8;
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
     }
 
     .hero {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4rem 1rem;
-    }
-
-    .hero-panel {
-      background-color: var(--white);
-      padding: 3rem 2rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      max-width: 600px;
-      width: 100%;
       text-align: center;
+      padding: 6rem 1rem 4rem;
     }
 
     h1 {
       font-family: 'Oswald', sans-serif;
-      font-weight: bold;
-      font-size: 3.4rem;
-      line-height: 1.1em;
+      font-size: 3.6rem;
       text-transform: uppercase;
-      margin-bottom: 2rem;
+      font-weight: bold;
+      line-height: 1.1em;
+      margin: 0 auto 2rem;
+      max-width: 700px;
+    }
+
+    .form-container {
+      background: #fff;
+      margin: 0 auto;
+      padding: 2rem;
+      max-width: 600px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
     }
 
     label {
-      font-family: 'Oswald', sans-serif;
-      font-weight: bold;
-      text-transform: uppercase;
-      font-size: 1.4rem;
       display: block;
-      text-align: left;
-      margin-bottom: 0.5rem;
+      margin-top: 1.5rem;
+      font-size: 1.4rem;
+      font-weight: normal;
+      text-transform: none;
     }
 
     select {
-      font-family: 'Nunito Sans', sans-serif;
-      font-size: 1.2rem;
-      padding: 0.6rem;
       width: 100%;
-      margin-bottom: 1.5rem;
-      border-radius: 5px;
+      padding: 0.8rem;
+      margin-top: 0.5rem;
+      font-size: 1.4rem;
     }
 
     button {
-      background-color: var(--green);
-      color: var(--white);
+      background-color: #78C976;
+      color: white;
       border: none;
-      padding: 0.8rem 2rem;
+      padding: 1rem 2rem;
+      margin-top: 2rem;
       font-size: 1.2rem;
       font-family: 'Oswald', sans-serif;
       text-transform: uppercase;
-      border-radius: 8px;
+      font-weight: normal;
       cursor: pointer;
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
     }
 
     @media (max-width: 768px) {
       header {
-        justify-content: center;
-        padding: 0.8rem;
+        padding: 1.5rem 1rem;
       }
 
-      .contact-link {
-        display: none;
+      .logo {
+        height: 45px;
       }
 
       .hamburger {
         display: flex;
         position: absolute;
         right: 1rem;
-        top: 50%;
-        transform: translateY(-50%);
+        top: 1.5rem;
+      }
+
+      nav {
+        display: none;
       }
 
       h1 {
         font-size: 2.4rem;
-        margin-top: -1rem;
-      }
-
-      .hero-panel {
-        padding: 2rem 1rem;
       }
 
       button {
-        padding: 0.8rem 1rem;
-        font-size: 1.1rem;
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="nav-center">
-      <img src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" class="logo" />
-    </div>
-    <a href="#contact" class="contact-link">CONTACT</a>
+    <img src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" class="logo" />
+    <nav>
+      <a href="#">CONTACT</a>
+    </nav>
     <div class="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
     </div>
   </header>
 
   <section class="hero">
-    <div class="hero-panel">
-      <h1>WHAT DOES YOUR BUSINESS NEED MOST?</h1>
+    <h1>WHAT DOES YOUR BUSINESS NEED MOST?</h1>
+    <div class="form-container">
       <form action="results.html">
-        <label for="need">It Needs</label>
-        <select id="need" name="need">
-          <option value="leads">More Leads</option>
-          <option value="repeat">More Repeat Customers</option>
-          <option value="website">A New Website</option>
-          <option value="systems">Streamlined Internal Systems</option>
+        <label for="need">It Needs:</label>
+        <select name="need" id="need">
+          <option>More Leads</option>
+          <option>More Repeat Customers</option>
+          <option>A New Website</option>
+          <option>Streamlined Internal Systems</option>
         </select>
 
-        <label for="prefer">I Prefer</label>
-        <select id="prefer" name="prefer">
-          <option value="dfy">A Done For You Service</option>
-          <option value="consult">Advice And Consultancy So I Can Do It Myself</option>
+        <label for="prefer">I Prefer:</label>
+        <select name="prefer" id="prefer">
+          <option>Done For You Service</option>
+          <option>Advice and Consultancy</option>
         </select>
 
         <button type="submit">HERE'S WHAT TO DO NEXT...</button>
