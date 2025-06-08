@@ -1,248 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Creative365</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400&family=Oswald:wght@700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --green: #78C976;
-      --black: #000;
-      --white: #fff;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Nunito Sans', sans-serif;
-      background-color: var(--white);
-      color: var(--black);
-    }
-
-    header {
-      background-color: var(--black);
-      display: flex;
-      align-items: center;
-      justify-content: center; /* centers logo */
-      padding: 1rem 2rem; /* keep your original padding */
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Creative365</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald&family=Nunito+Sans&display=swap" rel="stylesheet" />
+<style>
+  /* === Navigation styles === */
+  body {
+    margin: 0;
+    background: white;
+    color: black;
+    font-family: 'Nunito Sans', sans-serif;
+  }
+  nav {
+    background: black;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav .logo {
+    height: 40px; /* smaller logo as requested */
+    margin: 0 auto;
+    display: block;
+  }
+  nav .contact-link {
+    color: white;
+    text-transform: uppercase;
+    font-weight: normal;
+    cursor: pointer;
+    margin-left: auto;
+  }
+  /* Adjust contact link margin so it’s slightly left from right edge */
+  nav .contact-link {
+    margin-right: 12px;
+  }
+  /* Mobile nav styles */
+  @media (max-width: 768px) {
+    nav {
+      justify-content: center;
       position: relative;
-      height: 80px;
     }
-
-    .logo {
-      height: 40px;
-      z-index: 1;
-    }
-
-    .logo img {
-      height: 100%;
-      display: block;
-    }
-
-    .nav-contact {
-      color: var(--white);
-      text-decoration: none;
-      text-transform: uppercase;
-      font-family: 'Nunito Sans', sans-serif;
-      font-weight: 400;
+    nav .hamburger {
       position: absolute;
-      right: 2rem;
+      right: 24px;
       top: 50%;
       transform: translateY(-50%);
+      cursor: pointer;
+      display: block;
+      width: 24px;
+      height: 18px;
+    }
+    nav .hamburger div {
+      background: white;
+      height: 3px;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+    nav .contact-link {
+      display: none; /* hidden on mobile, revealed via hamburger */
+    }
+    nav.open .contact-link {
+      display: block;
+      position: absolute;
+      top: 56px;
+      right: 24px;
+      background: black;
+      padding: 8px 16px;
+      border-radius: 4px;
+      color: white;
+      font-weight: normal;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+      z-index: 10;
+    }
+  }
+
+  /* === Hero section === */
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 72px); /* subtract nav height approx */
+    padding: 24px;
+  }
+  #hero {
+    max-width: 400px;
+    width: 100%;
+    background: white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    padding: 48px 32px 40px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  /* Heading style */
+  #main-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.2rem;
+    text-transform: uppercase;
+    margin: 0 0 48px;
+    line-height: 1.1;
+    max-width: 100%;
+    display: inline-block;
+    /* No shadow on hero text as requested */
+  }
+  @media (max-width: 768px) {
+    #main-heading {
+      font-size: 2.8rem;
+    }
+  }
+
+  /* Form styles */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  label {
+    text-transform: none;
+    font-weight: normal;
+    text-align: left;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: black;
+  }
+  select {
+    padding: 12px 14px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-family: 'Nunito Sans', sans-serif;
+    cursor: pointer;
+  }
+  select:focus {
+    outline: 2px solid #0aaf3a;
+  }
+  button {
+    background-color: #0aaf3a;
+    color: white;
+    border: none;
+    border-radius: 32px;
+    padding: 18px 24px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: normal; /* unbold as requested */
+    box-shadow: none; /* no shadow on button text */
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #089630;
+  }
+  @media (max-width: 768px) {
+    button {
+      padding: 16px 20px;
+      font-size: 1.1rem;
       white-space: nowrap;
     }
+  }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
-      position: absolute;
-      right: 1rem;
-      top: 1.2rem;
-    }
+  /* Align labels and selects */
+  label, select {
+    text-align: left;
+  }
 
-    .hamburger div {
-      background-color: var(--white);
-      height: 2px;
-      width: 24px;
-    }
-
-    .hero {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 6rem 1rem;
-      position: relative;
-    }
-
-    .hero-panel {
-      max-width: 600px;
-      background: #fff;
-      padding: 2rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      overflow: hidden; /* needed for roll up */
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      font-family: 'Oswald', sans-serif;
-      text-transform: uppercase;
-      line-height: 1.1em;
-      margin-bottom: 2rem;
-      overflow: hidden;
-      transform-origin: bottom center;
+  /* Animation styles */
+  @keyframes flipIn {
+    0% {
+      transform: rotateX(90deg);
       opacity: 0;
-      transform: translateY(50px);
-      transition: transform 0.8s ease-out, opacity 0.8s ease-out;
     }
-
-    /* Animate heading roll-up */
-    h1.animate-in {
+    100% {
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+  }
+  .flip-text {
+    animation: flipIn 1s ease forwards;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
+  @keyframes fadeSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
       opacity: 1;
       transform: translateY(0);
     }
-
-    form {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: transform 0.8s ease-out 0.5s, opacity 0.8s ease-out 0.5s;
-    }
-
-    form.animate-in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    label {
-      display: block;
-      text-align: left;
-      font-size: 1.25rem; /* increased font size */
-      margin-top: 1.2rem;
-      font-weight: normal;
-      text-transform: capitalize;
-    }
-
-    select {
-      width: 100%;
-      padding: 0.75rem;
-      font-size: 1.2rem; /* increased font size */
-      margin-top: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    button {
-      margin-top: 2rem;
-      background-color: var(--green);
-      color: var(--white);
-      border: none;
-      padding: 1rem;
-      width: 100%;
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.6rem; /* slightly bigger */
-      text-transform: uppercase;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #5fae52;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        justify-content: center; /* logo centered on mobile too */
-      }
-
-      .nav-contact {
-        display: none; /* keep hidden on mobile */
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .logo {
-        height: 30px;
-      }
-
-      h1 {
-        font-size: 2.5rem;
-      }
-
-      label {
-        font-size: 1.15rem;
-      }
-
-      select {
-        font-size: 1.1rem;
-        padding: 0.6rem;
-      }
-
-      button {
-        font-size: 1.4rem;
-        padding: 0.8rem;
-      }
-    }
-  </style>
+  }
+  .form-animate {
+    opacity: 0;
+  }
+  .form-animate.visible {
+    animation: fadeSlideIn 0.8s ease forwards;
+  }
+</style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" />
-    </div>
-    <a href="#contact" class="nav-contact">CONTACT</a>
-    <div class="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </header>
+  <nav>
+    <img src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" class="logo" />
+    <a href="#contact" class="contact-link">CONTACT</a>
 
-  <section class="hero">
-    <div class="hero-panel">
-      <h1 id="hero-heading">WHAT DOES YOUR BUSINESS NEED MOST?</h1>
-      <form action="next-page.html" id="hero-form">
-        <label for="needs">It needs</label>
-        <select id="needs" name="needs">
-          <option>More Leads</option>
-          <option>More Repeat Customers</option>
-          <option>A New Website</option>
-          <option>Streamlined Internal Systems</option>
+    <!-- Hamburger for mobile -->
+    <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu" tabindex="0">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <a href="#contact" class="contact-link-mobile">CONTACT</a>
+  </nav>
+
+  <main>
+    <section id="hero">
+      <h1 id="main-heading" class="flip-text">WHAT DOES YOUR BUSINESS NEED MOST?</h1>
+
+      <form id="need-form" class="form-animate" action="#" method="post">
+        <label for="need">It Needs</label>
+        <select id="need" name="need" required>
+          <option value="">Select an option</option>
+          <option value="more_leads">More Leads</option>
+          <option value="more_customers">More Repeat Customers</option>
+          <option value="new_website">A New Website</option>
+          <option value="streamline_processes">Streamline Internal Systems</option>
         </select>
 
-        <label for="prefer">I prefer</label>
-        <select id="prefer" name="prefer">
-          <option>Done For You</option>
-          <option>Advice and Consultancy</option>
+        <label for="preference">I Prefer</label>
+        <select id="preference" name="preference" required>
+          <option value="">Select an option</option>
+          <option value="done_for_you">Done For You Service</option>
+          <option value="consulting">Advice & Consultancy</option>
         </select>
 
         <button type="submit">HERE'S WHAT TO DO NEXT...</button>
       </form>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const heading = document.getElementById('hero-heading');
-      const form = document.getElementById('hero-form');
+<script>
+  // Animate form after heading flip finishes
+  const heading = document.getElementById('main-heading');
+  const form = document.getElementById('need-form');
 
-      // Animate heading first
-      heading.classList.add('animate-in');
+  heading.addEventListener('animationend', () => {
+    form.classList.add('visible');
+  });
 
-      // Animate form with delay (matches CSS delay)
-      setTimeout(() => {
-        form.classList.add('animate-in');
-      }, 500);
-    });
-  </script>
+  // Mobile hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.querySelector('nav');
+  const mobileContactLink = document.querySelector('.contact-link');
+
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+</script>
 </body>
 </html>
