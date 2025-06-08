@@ -87,6 +87,7 @@
       padding: 2rem;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       text-align: center;
+      overflow: hidden; /* needed for roll up */
     }
 
     h1 {
@@ -95,22 +96,46 @@
       text-transform: uppercase;
       line-height: 1.1em;
       margin-bottom: 2rem;
+      overflow: hidden;
+      transform-origin: bottom center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+    }
+
+    /* Animate heading roll-up */
+    h1.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    form {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: transform 0.8s ease-out 0.5s, opacity 0.8s ease-out 0.5s;
+    }
+
+    form.animate-in {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     label {
       display: block;
       text-align: left;
-      font-size: 1rem; /* keep original font size */
-      margin-top: 1rem;
+      font-size: 1.25rem; /* increased font size */
+      margin-top: 1.2rem;
       font-weight: normal;
       text-transform: capitalize;
     }
 
     select {
       width: 100%;
-      padding: 0.5rem;
-      font-size: 1rem;
+      padding: 0.75rem;
+      font-size: 1.2rem; /* increased font size */
       margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
 
     button {
@@ -121,9 +146,15 @@
       padding: 1rem;
       width: 100%;
       font-family: 'Oswald', sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.6rem; /* slightly bigger */
       text-transform: uppercase;
       cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #5fae52;
     }
 
     @media (max-width: 768px) {
@@ -145,6 +176,15 @@
 
       h1 {
         font-size: 2.5rem;
+      }
+
+      label {
+        font-size: 1.15rem;
+      }
+
+      select {
+        font-size: 1.1rem;
+        padding: 0.6rem;
       }
 
       button {
@@ -169,8 +209,8 @@
 
   <section class="hero">
     <div class="hero-panel">
-      <h1>WHAT DOES YOUR BUSINESS NEED MOST?</h1>
-      <form action="next-page.html">
+      <h1 id="hero-heading">WHAT DOES YOUR BUSINESS NEED MOST?</h1>
+      <form action="next-page.html" id="hero-form">
         <label for="needs">It needs</label>
         <select id="needs" name="needs">
           <option>More Leads</option>
@@ -189,5 +229,20 @@
       </form>
     </div>
   </section>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const heading = document.getElementById('hero-heading');
+      const form = document.getElementById('hero-form');
+
+      // Animate heading first
+      heading.classList.add('animate-in');
+
+      // Animate form with delay (matches CSS delay)
+      setTimeout(() => {
+        form.classList.add('animate-in');
+      }, 500);
+    });
+  </script>
 </body>
 </html>
