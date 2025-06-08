@@ -3,223 +3,195 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Creative365 | Business Growth</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Oswald:wght@700&display=swap" rel="stylesheet">
+  <title>Creative365</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Nunito+Sans&display=swap" rel="stylesheet" />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root {
+      --green: #78C976;
+      --black: #000;
+      --white: #fff;
     }
 
     body {
+      margin: 0;
       font-family: 'Nunito Sans', sans-serif;
-      background-color: #ffffff;
-      color: #000000;
+      background-color: var(--white);
+      color: var(--black);
     }
 
     header {
-      background-color: #000000;
+      background-color: var(--black);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
+      padding: 0.8rem 1.2rem;
       position: relative;
     }
 
-    header img {
+    .logo {
       height: 40px;
     }
 
-    nav {
-      display: flex;
-      align-items: center;
+    .nav-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
-    .nav-contact {
-      color: #ffffff;
-      text-decoration: none;
+    .contact-link {
       font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      font-weight: normal;
       font-size: 1rem;
-      text-shadow: 1px 1px 2px #000;
+      color: var(--white);
+      text-decoration: none;
+      margin-right: 10px;
+      position: relative;
+      right: 10px;
     }
 
     .hamburger {
       display: none;
       flex-direction: column;
+      justify-content: center;
       cursor: pointer;
+      height: 20px;
     }
 
-    .bar {
-      width: 25px;
-      height: 3px;
-      background-color: #ffffff;
-      margin: 4px 0;
+    .hamburger div {
+      background-color: var(--white);
+      height: 2px;
+      margin: 3px 0;
+      width: 22px;
       opacity: 0.8;
     }
 
     .hero {
       display: flex;
-      justify-content: center;
       align-items: center;
-      height: 100vh;
-      padding: 2rem;
+      justify-content: center;
+      padding: 4rem 1rem;
     }
 
     .hero-panel {
-      background-color: #ffffff;
-      padding: 3rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      border-radius: 10px;
-      text-align: center;
-      max-width: 700px;
+      background-color: var(--white);
+      padding: 3rem 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      max-width: 600px;
       width: 100%;
+      text-align: center;
     }
 
     h1 {
-      font-size: 3rem;
       font-family: 'Oswald', sans-serif;
       font-weight: bold;
+      font-size: 3.4rem;
       line-height: 1.1em;
       text-transform: uppercase;
-      text-align: center;
-      text-shadow: 2px 2px 4px #aaa;
-      animation: fadeInDown 1s ease;
-    }
-
-    .form-section {
-      margin-top: 2rem;
-      animation: fadeInUp 1.5s ease;
+      margin-bottom: 2rem;
     }
 
     label {
+      font-family: 'Oswald', sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
       font-size: 1.4rem;
-      font-family: 'Nunito Sans', sans-serif;
       display: block;
       text-align: left;
       margin-bottom: 0.5rem;
     }
 
     select {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 1.2rem;
+      padding: 0.6rem;
       width: 100%;
-      padding: 0.75rem;
-      font-size: 1.4rem;
       margin-bottom: 1.5rem;
       border-radius: 5px;
-      border: 1px solid #ccc;
     }
 
     button {
-      background-color: #78C976;
-      color: white;
+      background-color: var(--green);
+      color: var(--white);
+      border: none;
+      padding: 0.8rem 2rem;
       font-size: 1.2rem;
       font-family: 'Oswald', sans-serif;
-      padding: 1rem 2rem;
-      border: none;
+      text-transform: uppercase;
       border-radius: 8px;
       cursor: pointer;
-      box-shadow: 2px 2px 6px #999;
-      text-shadow: 1px 1px 2px #444;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
     }
 
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media screen and (max-width: 768px) {
+    @media (max-width: 768px) {
       header {
-        flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
+        padding: 0.8rem;
       }
 
-      header img {
-        height: 35px;
+      .contact-link {
+        display: none;
       }
 
       .hamburger {
         display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .hero {
-        padding: 1rem;
-        height: auto;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
       }
 
       h1 {
-        font-size: 2.2rem;
-        margin-top: 1rem;
+        font-size: 2.4rem;
+        margin-top: -1rem;
+      }
+
+      .hero-panel {
+        padding: 2rem 1rem;
       }
 
       button {
+        padding: 0.8rem 1rem;
         font-size: 1.1rem;
-        padding: 0.9rem 1.5rem;
-        white-space: nowrap;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo">
-    <nav>
-      <div class="hamburger">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
-      <a class="nav-contact" href="#">Contact</a>
-    </nav>
+    <div class="nav-center">
+      <img src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" class="logo" />
+    </div>
+    <a href="#contact" class="contact-link">CONTACT</a>
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </header>
 
   <section class="hero">
     <div class="hero-panel">
       <h1>WHAT DOES YOUR BUSINESS NEED MOST?</h1>
-      <div class="form-section">
-        <label for="needs">It needs:</label>
-        <select id="needs">
-          <option>More Leads</option>
-          <option>More Repeat Customers</option>
-          <option>A New Website</option>
-          <option>Streamlined Internal Systems</option>
+      <form action="results.html">
+        <label for="need">It Needs</label>
+        <select id="need" name="need">
+          <option value="leads">More Leads</option>
+          <option value="repeat">More Repeat Customers</option>
+          <option value="website">A New Website</option>
+          <option value="systems">Streamlined Internal Systems</option>
         </select>
 
-        <label for="prefer">I prefer:</label>
-        <select id="prefer">
-          <option>Done-for-you service</option>
-          <option>Advice and consultancy so I can do it myself</option>
+        <label for="prefer">I Prefer</label>
+        <select id="prefer" name="prefer">
+          <option value="dfy">A Done For You Service</option>
+          <option value="consult">Advice And Consultancy So I Can Do It Myself</option>
         </select>
 
-        <button onclick="nextStep()">HERE'S WHAT TO DO NEXT...</button>
-      </div>
+        <button type="submit">HERE'S WHAT TO DO NEXT...</button>
+      </form>
     </div>
   </section>
-
-  <script>
-    function nextStep() {
-      const need = document.getElementById('needs').value;
-      const prefer = document.getElementById('prefer').value;
-      window.location.href = `results.html?need=${encodeURIComponent(need)}&prefer=${encodeURIComponent(prefer)}`;
-    }
-  </script>
 </body>
 </html>
