@@ -3,97 +3,182 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Creative365 Intake</title>
+  <title>Creative365 | What Does Your Business Need Most?</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Oswald:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Nunito Sans', sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: 'Nunito Sans', sans-serif;
       background-color: #ffffff;
       color: #000000;
+    }
+
+    header {
+      background-color: #000000;
       display: flex;
-      justify-content: center;
       align-items: center;
-      height: 100vh;
+      justify-content: space-between;
+      padding: 1rem 2rem;
     }
-    .container {
-      text-align: center;
-      max-width: 640px;
-      margin: 0 1rem;
+
+    header img.logo {
+      height: 40px;
     }
-    h1 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 4rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      line-height: 1.1em;
-      margin-bottom: 2rem;
-    }
-    label, select {
-      font-size: 1.4rem;
-      margin-top: 1rem;
-      display: block;
-      width: 100%;
-      max-width: 100%;
-      margin-bottom: 1rem;
-      text-align: left;
-    }
-    select {
-      padding: 0.75rem;
-      font-family: 'Nunito Sans', sans-serif;
-      font-size: 1.2rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    button {
-      background-color: #78C976;
+
+    nav a {
       color: white;
       font-family: 'Oswald', sans-serif;
-      font-size: 1.4rem;
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
       text-transform: uppercase;
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      margin-top: 2rem;
     }
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2.8rem;
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 3.4rem;
+      line-height: 1.1em;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    label {
+      font-size: 1.4rem;
+    }
+
+    select {
+      padding: 0.8rem;
+      font-size: 1.2rem;
+      width: 280px;
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background-color: #78C976;
+      border: none;
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: row;
+        justify-content: center;
+        position: relative;
+      }
+
+      nav.desktop {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+      }
+
+      .mobile-menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #000;
+        padding: 1rem;
+        border-radius: 8px;
+      }
+
+      .mobile-menu a {
+        color: white;
+        text-decoration: none;
+        font-family: 'Oswald', sans-serif;
+        text-transform: uppercase;
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <header>
+    <img class="logo" src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" />
+    <nav class="desktop">
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hamburger" onclick="toggleMobileMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <section class="hero">
     <h1>What Does Your Business Need Most?</h1>
-    <form id="intake-form">
+    <form class="form-container" action="results.html" method="GET">
       <label for="need">It needs:</label>
-      <select id="need" name="need" required>
-        <option value="more-leads">More leads (Facebook ads, Google ads, Websites, Funnels)</option>
-        <option value="more-customers">More repeat customers (Email marketing, CRM, referrals)</option>
-        <option value="internal-systems">Streamlined internal processes (Automation, Scheduling, Quoting)</option>
+      <select name="need" id="need" required>
+        <option value="more-leads">More leads (Facebook Ads, Google Ads, Landing Pages, Website Builds)</option>
+        <option value="customer-retention">More repeat customers (Email Campaigns, Reviews, Referrals)</option>
+        <option value="better-systems">Better systems & processes (Quoting, Scheduling, Automation, Team Tools)</option>
       </select>
 
-      <label for="preference">I prefer:</label>
-      <select id="preference" name="preference" required>
-        <option value="dfy">A done-for-you service</option>
+      <label for="approach">I prefer:</label>
+      <select name="approach" id="approach" required>
+        <option value="dfy">Done-for-you services</option>
         <option value="consulting">Advice and consultancy so I can do things myself</option>
       </select>
 
-      <button type="submit">Here's what to do next...</button>
+      <button type="submit">Here's What To Do Next...</button>
     </form>
-  </div>
+  </section>
 
   <script>
-    document.getElementById('intake-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const need = document.getElementById('need').value;
-      const preference = document.getElementById('preference').value;
-      const query = `?need=${need}&preference=${preference}`;
-      window.location.href = 'results.html' + query;
-    });
+    function toggleMobileMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
   </script>
 </body>
 </html>
