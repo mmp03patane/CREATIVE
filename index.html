@@ -1,348 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Creative365</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Oswald:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative365</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Oswald:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    body {
-      font-family: 'Nunito Sans', sans-serif;
-      background-color: #f7f7f7;
-      color: #222;
-      line-height: 1.6;
-      font-size: 1.15rem;
-    }
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      background-color: #f7f7f7;
+      color: #222;
+      line-height: 1.6;
+      font-size: 1.15rem;
+    }
 
-    header {
-      background-color: #000;
-      color: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-    }
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
 
-    .logo img {
-      height: 30px;
-    }
+    .logo img {
+      height: 30px;
+    }
 
-    nav.desktop-nav {
-      display: block;
-    }
+    nav.desktop-nav {
+      display: block;
+    }
 
-    nav.desktop-nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 2rem;
-      font-family: 'Roboto', sans-serif;
-      text-transform: uppercase;
-      font-weight: normal;
-    }
+    nav.desktop-nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-family: 'Roboto', sans-serif;
+      text-transform: uppercase;
+      font-weight: normal;
+    }
 
-    .hamburger-menu {
-      display: none;
-      width: 30px;
-      height: 21px;
-      cursor: pointer;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 20;
-    }
+    .hamburger-menu {
+      display: none;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 20;
+    }
 
-    .hamburger-menu .bar {
-      display: block;
-      width: 100%;
-      height: 3px;
-      background-color: #fff;
-      transition: all 0.3s ease-in-out;
-    }
+    .hamburger-menu .bar {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: #fff;
+      transition: all 0.3s ease-in-out;
+    }
 
-    nav.mobile-nav {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background-color: #000;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      z-index: 15;
-      padding: 1rem 0;
-      text-align: center;
-    }
+    nav.mobile-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #000;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 15;
+      padding: 1rem 0;
+      text-align: center;
+    }
 
-    nav.mobile-nav a {
-      color: #fff;
-      text-decoration: none;
-      font-family: 'Roboto', sans-serif;
-      font-weight: normal;
-      display: block;
-      padding: 0.8rem 1rem;
-      text-transform: uppercase;
-      transition: background-color 0.2s ease;
-    }
+    nav.mobile-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Roboto', sans-serif;
+      font-weight: normal;
+      display: block;
+      padding: 0.8rem 1rem;
+      text-transform: uppercase;
+      transition: background-color 0.2s ease;
+    }
 
-    nav.mobile-nav a:hover {
-      background-color: #333;
-    }
+    nav.mobile-nav a:hover {
+      background-color: #333;
+    }
 
-    nav.mobile-nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-    }
+    nav.mobile-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
 
-    nav.mobile-nav.open {
-      display: block;
-    }
+    nav.mobile-nav.open {
+      display: block;
+    }
 
-    .hero {
-      padding: 4rem 2rem; /* This provides the outer 2rem horizontal padding */
-    }
+    .hero {
+      padding: 4rem 2rem; /* This provides the outer 2rem horizontal padding */
+    }
 
-    .hero-card {
-      background: #fff;
-      padding: 2rem 2rem; /* This provides the inner 2rem horizontal padding */
-      box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
-      border-radius: 12px;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-      animation: slideUp 0.8s ease forwards;
-    }
+    .hero-card {
+      background: #fff;
+      padding: 2rem 2rem; /* This provides the inner 2rem horizontal padding */
+      box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      animation: slideUp 0.8s ease forwards;
+    }
 
-    .hero-card h1,
-    .hero-card .subtext,
-    .hero-card .hero-button {
-      animation: slideInLeft 1s ease forwards;
-    }
+    .hero-card h1,
+    .hero-card .subtext,
+    .hero-card .hero-button {
+      animation: slideInLeft 1s ease forwards;
+    }
 
-    .hero-card h1 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 3rem;
-      line-height: 1.1;
-      white-space: pre-line;
-      color: #000;
-      padding: 1rem 0;
-      margin-bottom: 2rem;
-    }
+    .hero-card h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 3rem;
+      line-height: 1.1;
+      white-space: pre-line;
+      color: #000;
+      padding: 1rem 0;
+      margin-bottom: 2rem;
+    }
 
-    .hero-card .subtext {
-      font-size: 1.8rem;
-      line-height: 1.5;
-      color: #000;
-      margin-bottom: 2rem;
-    }
+    .hero-card .subtext {
+      font-size: 1.8rem;
+      line-height: 1.5;
+      color: #000;
+      margin-bottom: 2rem;
+    }
 
-    .hero-card .hero-button {
-      background-color: #78C976;
-      color: #fff;
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      font-family: 'Roboto', sans-serif;
-      text-transform: uppercase;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+    .hero-card .hero-button {
+      background-color: #78C976;
+      color: #fff;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-family: 'Roboto', sans-serif;
+      text-transform: uppercase;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-    .hero-card .hero-button:hover {
-      background-color: #5fae60;
-    }
+    .hero-card .hero-button:hover {
+      background-color: #5fae60;
+    }
 
-    .panel {
-      max-width: 800px;
-      margin: 3rem auto;
-      background: #fff;
-      padding: 2rem 2rem; /* MODIFIED: Explicit horizontal/vertical padding */
-      box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
-      border-radius: 12px;
-      animation: slideUp 0.8s ease forwards;
-    }
+    .panel {
+      max-width: 800px;
+      margin: 3rem auto;
+      background: #fff;
+      padding: 2rem 2rem; /* MODIFIED: Explicit horizontal/vertical padding */
+      box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      animation: slideUp 0.8s ease forwards;
+    }
 
-    .panel h2 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
+    .panel h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
 
-    .panel p {
-      margin-bottom: 1rem;
-    }
+    .panel p {
+      margin-bottom: 1rem;
+    }
 
-    .profile-photo {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+    .profile-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
 
-    .cta {
-      text-align: center;
-      margin: 4rem auto;
-      background: #fff;
-      padding: 2rem 2rem; /* MODIFIED: Explicit horizontal/vertical padding */
-      box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
-      border-radius: 12px;
-      max-width: 800px;
-      animation: slideUp 0.8s ease forwards;
-    }
+    .cta {
+      text-align: center;
+      margin: 4rem auto;
+      background: #fff;
+      padding: 2rem 2rem; /* MODIFIED: Explicit horizontal/vertical padding */
+      box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      max-width: 800px;
+      animation: slideUp 0.8s ease forwards;
+    }
 
-    .cta button {
-      background-color: #78C976;
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      font-family: 'Oswald', sans-serif;
-      text-transform: uppercase;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+    .cta button {
+      background-color: #78C976;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-    .cta button:hover {
-      background-color: #5fae60;
-    }
+    .cta button:hover {
+      background-color: #5fae60;
+    }
 
-    .cta ul li {
-        font-size: 1.15rem;
-    }
+    .cta ul li {
+        font-size: 1.15rem;
+    }
 
-    @keyframes slideUp {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
 
-    @keyframes slideInLeft {
-      from { transform: translateX(-50px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
+    @keyframes slideInLeft {
+      from { transform: translateX(-50px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
 
-    @media (max-width: 768px) {
-      nav.desktop-nav {
-        display: none;
-      }
+    @media (max-width: 768px) {
+      nav.desktop-nav {
+        display: none;
+      }
 
-      .hamburger-menu {
-        display: flex;
-      }
+      .hamburger-menu {
+        display: flex;
+      }
 
-      .hero-card h1 {
-        font-size: 2.6rem;
-      }
+      .hero-card h1 {
+        font-size: 2.6rem;
+      }
 
-      .hero-card .subtext {
-        font-size: 1.4rem;
-      }
+      .hero-card .subtext {
+        font-size: 1.4rem;
+      }
 
-      /* CRITICAL CHANGE: Adjust padding for panels and CTA on mobile to match hero-card's effective padding */
-      .panel,
-      .cta {
-          padding: 2rem 4rem; /* Top/bottom 2rem, left/right 4rem */
-      }
-    }
-  </style>
+      /* MODIFIED: Adjust margin and padding for panels and CTA on mobile to match hero-card's visual alignment */
+      .panel,
+      .cta {
+          margin-left: 2rem; /* Adds 2rem spacing from left viewport edge */
+          margin-right: 2rem; /* Adds 2rem spacing from right viewport edge */
+          padding: 2rem 2rem; /* Ensures consistent internal padding */
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <a href="#" class="logo">
-        <img src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" />
-    </a>
+  <header>
+    <a href="#" class="logo">
+        <img src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" />
+    </a>
 
-    <nav class="desktop-nav">
-      <a href="#">CONTACT</a>
-    </nav>
+    <nav class="desktop-nav">
+      <a href="#">CONTACT</a>
+    </nav>
 
-    <div class="hamburger-menu">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
+    <div class="hamburger-menu">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
 
-    <nav class="mobile-nav">
-      <ul>
-        <li><a href="#">CONTACT</a></li>
-      </ul>
-    </nav>
-  </header>
+    <nav class="mobile-nav">
+      <ul>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <section class="hero">
-    <div class="hero-card">
-      <h1>"I HELP RESIDENTIAL
+  <section class="hero">
+    <div class="hero-card">
+      <h1>"I HELP RESIDENTIAL
 SERVICE BUSINESSES GROW"</h1>
-      <div class="subtext">
-        Get more leads...<br />
-        Keep more customers...<br />
-        Build better systems...
-      </div>
-      <button class="hero-button">LET'S CHAT</button>
-    </div>
-  </section>
+      <div class="subtext">
+        Get more leads...<br />
+        Keep more customers...<br />
+        Build better systems...
+      </div>
+      <button class="hero-button">LET'S CHAT</button>
+    </div>
+  </section>
 
-  <section class="panel">
-    <img src="https://github.com/mmp03patane/creative/blob/main/PROFILE%20PHOTO%203.PNG?raw=true" alt="Michael Patane" class="profile-photo" />
-    <p>Hey everyone,</p>
-    <p>I'm <b>Michael Patane</b>, and I run <b>Creative365</b>: A business consultancy that helps residential service businesses grow.</p>
-    <p>I’ve worked with some of the biggest companies in Australia:</p>
-    <p>At <b>GLG</b>, I clocked up <b>hundreds of consulting hours</b> helping service based businesses with anything from franchising advice to lead generation. Electricians, plumbers, gardeners, painters, and general trades, <em>I've seen it all...</em></p>
-    <p>At <b>Jim’s Group</b>, I helped streamline onboarding operations for franchisees. I hosted a monthly lecture teaching mowing franchisees how to use technology to <b>quote</b>, <b>schedule</b> and <b>invoice clients</b>.</p>
-    <p>At <b>MYOB</b>, I assisted medium sized businesses to engage digitally and drive adoption through education. I focused on internal efficiencies to elevate customer success experiences.</p>
-  </section>
+  <section class="panel">
+    <img src="https://github.com/mmp03patane/creative/blob/main/PROFILE%20PHOTO%203.PNG?raw=true" alt="Michael Patane" class="profile-photo" />
+    <p>Hey everyone,</p>
+    <p>I'm <b>Michael Patane</b>, and I run <b>Creative365</b>: A business consultancy that helps residential service businesses grow.</p>
+    <p>I’ve worked with some of the biggest companies in Australia:</p>
+    <p>At <b>GLG</b>, I clocked up <b>hundreds of consulting hours</b> helping service based businesses with anything from franchising advice to lead generation. Electricians, plumbers, gardeners, painters, and general trades, <em>I've seen it all...</em></p>
+    <p>At <b>Jim’s Group</b>, I helped streamline onboarding operations for franchisees. I hosted a monthly lecture teaching mowing franchisees how to use technology to <b>quote</b>, <b>schedule</b> and <b>invoice clients</b>.</p>
+    <p>At <b>MYOB</b>, I assisted medium sized businesses to engage digitally and drive adoption through education. I focused on internal efficiencies to elevate customer success experiences.</p>
+  </section>
 
-  <section class="panel">
-    <h2><b>GET MORE LEADS...</b></h2>
-    <p>I started <b>Creative365</b> to build websites that work, ads that convert and systems that scale.</p>
-    <p>It's simple...</p>
-    <p>From social media campaigns, landing Pages and email marketing to Google reviews & referral systems, I handle it so you don't have to.</p>
-  </section>
+  <section class="panel">
+    <h2><b>GET MORE LEADS...</b></h2>
+    <p>I started <b>Creative365</b> to build websites that work, ads that convert and systems that scale.</p>
+    <p>It's simple...</p>
+    <p>From social media campaigns, landing Pages and email marketing to Google reviews & referral systems, I handle it so you don't have to.</p>
+  </section>
 
-  <section class="panel">
-    <h2><b>KEEP MORE CUSTOMERS...</b></h2>
-    <p>What's better than new leads? Customers that keep <b>coming back</b> without any hassle.</p>
-    <p>I build customer success systems that drive <b>predictable revenue</b> and <b>reliable customers</b>.</p>
-  </section>
+  <section class="panel">
+    <h2><b>KEEP MORE CUSTOMERS...</b></h2>
+    <p>What's better than new leads? Customers that keep <b>coming back</b> without any hassle.</p>
+    <p>I build customer success systems that drive <b>predictable revenue</b> and <b>reliable customers</b>.</p>
+  </section>
 
-  <section class="panel">
-    <h2><b>SYSTEMS THAT SCALE...</b></h2>
-    <p>Success is great but it needs to be sustainable...</p>
-    <p>You'd be amazed at how much <b>time</b> and <b>money</b> you can save by reviewing your current processes.</p>
-    <p>I provide advice and best practice to streamline your internal systems to drive better efficiencies.</p>
-  </section>
+  <section class="panel">
+    <h2><b>SYSTEMS THAT SCALE...</b></h2>
+    <p>Success is great but it needs to be sustainable...</p>
+    <p>You'd be amazed at how much <b>time</b> and <b>money</b> you can save by reviewing your current processes.</p>
+    <p>I provide advice and best practice to streamline your internal systems to drive better efficiencies.</p>
+  </section>
 
-  <section class="cta">
-    <h2><b>SO WHAT'S NEXT?</b></h2>
-    <p>🎯 <b>Book a free 30-minute phone chat, and I will:</b></p>
-    <ul style="list-style: none; padding: 0;">
-      <li>✔️ Review your current setup</li>
-      <li>✔️ Identify your biggest growth opportunities</li>
-      <li>✔️ Share how I can help you scale</li>
-    </ul>
-    <button>Pick a time that suits you</button>
-  </section>
+  <section class="cta">
+    <h2><b>SO WHAT'S NEXT?</b></h2>
+    <p>🎯 <b>Book a free 30-minute phone chat, and I will:</b></p>
+    <ul style="list-style: none; padding: 0;">
+      <li>✔️ Review your current setup</li>
+      <li>✔️ Identify your biggest growth opportunities</li>
+      <li>✔️ Share how I can help you scale</li>
+    </ul>
+    <button>Pick a time that suits you</button>
+  </section>
 
-  <script>
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const mobileNav = document.querySelector('.mobile-nav');
+  <script>
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const mobileNav = document.querySelector('.mobile-nav');
 
-    hamburgerMenu.addEventListener('click', () => {
-      mobileNav.classList.toggle('open');
-    });
-  </script>
+    hamburgerMenu.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
