@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Creative365</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Oswald:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400&family=Oswald:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet" />
   <style>
     * {
       box-sizing: border-box;
@@ -36,28 +34,32 @@
       height: 30px;
     }
 
+    nav.desktop-nav {
+      display: block;
+    }
+
     nav.desktop-nav a {
       color: #fff;
       text-decoration: none;
       margin-left: 2rem;
-      font-family: 'Nunito Sans', sans-serif;
+      font-family: 'Roboto', sans-serif;
       text-transform: uppercase;
     }
 
     .hamburger-menu {
       display: none;
-      flex-direction: column;
-      justify-content: space-between;
       width: 30px;
       height: 21px;
       cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
       z-index: 20;
     }
 
     .hamburger-menu .bar {
-      width: 100%;
       height: 3px;
       background-color: #fff;
+      width: 100%;
     }
 
     nav.mobile-nav {
@@ -69,7 +71,6 @@
       background-color: #000;
       z-index: 15;
       text-align: center;
-      padding: 1rem 0;
     }
 
     nav.mobile-nav.open {
@@ -78,63 +79,53 @@
 
     nav.mobile-nav a {
       color: #fff;
-      text-decoration: none;
-      text-transform: uppercase;
       display: block;
       padding: 1rem;
+      text-transform: uppercase;
+      font-family: 'Roboto', sans-serif;
     }
 
-    .hero {
-      padding: 4rem 2rem;
-    }
-
-    .hero-card,
-    .panel,
-    .cta {
-      background: #fff;
-      padding: 2rem;
+    .hero, .panel, .cta {
       max-width: 800px;
       margin: 3rem auto;
+      background: #fff;
+      padding: 2rem;
+      box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
       border-radius: 12px;
-      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
       text-align: center;
+      animation: slideUp 0.8s ease forwards;
+    }
+
+    .hero h1, .panel h2, .cta h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
+      color: #000;
+      margin-bottom: 1rem;
       animation: slideInLeft 1s ease forwards;
     }
 
-    .hero-card h1,
-    .panel h2,
-    .cta h2 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 2.4rem;
-      margin-bottom: 1.5rem;
-      color: #000;
-    }
-
-    .subtext,
-    .panel p,
-    .cta p,
-    .cta ul li {
+    .hero .subtext, .panel p, .cta p, .cta ul li {
       font-size: 1.15rem;
       color: #000;
-      margin-bottom: 1rem;
+      animation: slideInLeft 1s ease forwards;
     }
 
-    .hero-button,
-    .cta button {
+    .hero-button, .cta button {
       background-color: #78C976;
       color: #fff;
       border: none;
       padding: 1rem 2rem;
       font-size: 1.2rem;
-      font-family: 'Nunito Sans', sans-serif;
+      font-family: 'Roboto', sans-serif;
       text-transform: uppercase;
       border-radius: 8px;
       cursor: pointer;
+      margin-top: 1.5rem;
       transition: background-color 0.3s ease;
+      animation: slideInLeft 1s ease forwards;
     }
 
-    .hero-button:hover,
-    .cta button:hover {
+    .hero-button:hover, .cta button:hover {
       background-color: #5fae60;
     }
 
@@ -147,9 +138,19 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    .cta ul {
+    ul {
       list-style: none;
       padding: 0;
+    }
+
+    li::before {
+      content: '✔️ ';
+      margin-right: 5px;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     @keyframes slideInLeft {
@@ -158,83 +159,82 @@
     }
 
     @media (max-width: 768px) {
-      nav.desktop-nav { display: none; }
-      .hamburger-menu { display: flex; }
-      .hero-card h1,
-      .panel h2,
-      .cta h2 { font-size: 2rem; }
-      .subtext,
-      .panel p,
-      .cta p,
-      .cta ul li { font-size: 1rem; }
+      header {
+        flex-wrap: wrap;
+      }
+
+      nav.desktop-nav {
+        display: none;
+      }
+
+      .hamburger-menu {
+        display: flex;
+      }
+
+      .hero h1, .panel h2, .cta h2 {
+        font-size: 2rem;
+      }
+
+      .hero .subtext, .panel p, .cta p, .cta ul li {
+        font-size: 1rem;
+      }
+
+      .hero, .panel, .cta {
+        padding: 2rem 1.2rem;
+        margin: 2rem 1rem;
+      }
     }
   </style>
 </head>
-
 <body>
   <header>
-    <a href="#" class="logo">
-      <img src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" />
-    </a>
-    <nav class="desktop-nav"><a href="#">CONTACT</a></nav>
-    <div class="hamburger-menu"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
-    <nav class="mobile-nav"><ul><li><a href="#">CONTACT</a></li></ul></nav>
+    <div class="logo"><img src="your-logo.png" alt="Creative365 Logo"></div>
+    <div class="hamburger-menu" onclick="toggleMobileMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <nav class="desktop-nav">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
   </header>
 
   <section class="hero">
-    <div class="hero-card">
-      <h1>"I HELP RESIDENTIAL<br>SERVICE BUSINESSES GROW"</h1>
-      <div class="subtext">Get more leads...<br />Keep more customers...<br />Build better systems...</div>
-      <button class="hero-button">LET'S CHAT</button>
-    </div>
+    <img src="your-photo.jpg" alt="Your Photo" class="profile-photo" />
+    <h1>Welcome to Creative365</h1>
+    <p class="subtext">Empowering Artists and Entrepreneurs to Build Thriving Careers.</p>
+    <button class="hero-button">LET'S CHAT</button>
   </section>
 
   <section class="panel">
-    <img src="https://github.com/mmp03patane/creative/blob/main/PROFILE%20PHOTO%203.PNG?raw=true" alt="Michael Patane" class="profile-photo" />
-    <p>Hey everyone,</p>
-    <p>I'm <b>Michael Patane</b>, and I run <b>Creative365</b>: A business consultancy that helps residential service businesses grow.</p>
-    <p>I’ve worked with some of the biggest companies in Australia:</p>
-    <p>At <b>GLG</b>, I clocked up <b>hundreds of consulting hours</b> helping service based businesses with anything from franchising advice to lead generation.</p>
-    <p>At <b>Jim’s Group</b>, I helped streamline onboarding operations for franchisees. I taught mowing franchisees how to <b>quote</b>, <b>schedule</b> and <b>invoice clients</b>.</p>
-    <p>At <b>MYOB</b>, I helped businesses drive adoption through education and internal efficiencies.</p>
-  </section>
-
-  <section class="panel">
-    <h2><b>GET MORE LEADS...</b></h2>
-    <p>I started <b>Creative365</b> to build websites that work, ads that convert and systems that scale.</p>
-    <p>From social media campaigns, landing pages, and email marketing to Google reviews & referral systems—I handle it so you don't have to.</p>
-  </section>
-
-  <section class="panel">
-    <h2><b>KEEP MORE CUSTOMERS...</b></h2>
-    <p>What's better than new leads? Customers that keep <b>coming back</b> without hassle.</p>
-    <p>I build customer success systems that drive <b>predictable revenue</b> and <b>reliable customers</b>.</p>
-  </section>
-
-  <section class="panel">
-    <h2><b>SYSTEMS THAT SCALE...</b></h2>
-    <p>Success is great—but it needs to be sustainable.</p>
-    <p>You'd be amazed at how much <b>time</b> and <b>money</b> you can save by reviewing your current processes.</p>
-    <p>I provide expert advice to streamline internal systems and drive efficiency.</p>
+    <h2>Our Mission</h2>
+    <p>We’re on a mission to simplify success for creatives and small businesses alike — with smart systems, done-for-you services, and coaching that actually delivers.</p>
   </section>
 
   <section class="cta">
-    <h2><b>SO WHAT'S NEXT?</b></h2>
-    <p>🎯 <b>Book a free 30-minute phone chat, and I will:</b></p>
+    <h2>What You Get</h2>
+    <p>When you join Creative365, you gain instant access to:</p>
     <ul>
-      <li>✔️ Review your current setup</li>
-      <li>✔️ Identify your biggest growth opportunities</li>
-      <li>✔️ Share how I can help you scale</li>
+      <li>Proven strategies & tools</li>
+      <li>Monthly content & updates</li>
+      <li>Group coaching and templates</li>
     </ul>
-    <button>Pick a time that suits you</button>
+    <button>GET STARTED</button>
   </section>
 
   <script>
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const mobileNav = document.querySelector('.mobile-nav');
-    hamburgerMenu.addEventListener('click', () => {
-      mobileNav.classList.toggle('open');
-    });
+    function toggleMobileMenu() {
+      document.getElementById("mobileNav").classList.toggle("open");
+    }
   </script>
 </body>
 </html>
