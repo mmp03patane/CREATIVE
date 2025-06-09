@@ -102,4 +102,139 @@
     }
 
     .hero-card h1,
-    .p
+    .panel h2,
+    .cta h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.4rem;
+      margin-bottom: 1.5rem;
+      color: #000;
+    }
+
+    .subtext,
+    .panel p,
+    .cta p,
+    .cta ul li {
+      font-size: 1.15rem;
+      color: #000;
+      margin-bottom: 1rem;
+    }
+
+    .hero-button,
+    .cta button {
+      background-color: #78C976;
+      color: #fff;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-family: 'Nunito Sans', sans-serif;
+      text-transform: uppercase;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero-button:hover,
+    .cta button:hover {
+      background-color: #5fae60;
+    }
+
+    .profile-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .cta ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    @keyframes slideInLeft {
+      from { transform: translateX(-50px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      nav.desktop-nav { display: none; }
+      .hamburger-menu { display: flex; }
+      .hero-card h1,
+      .panel h2,
+      .cta h2 { font-size: 2rem; }
+      .subtext,
+      .panel p,
+      .cta p,
+      .cta ul li { font-size: 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="#" class="logo">
+      <img src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" />
+    </a>
+    <nav class="desktop-nav"><a href="#">CONTACT</a></nav>
+    <div class="hamburger-menu"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+    <nav class="mobile-nav"><ul><li><a href="#">CONTACT</a></li></ul></nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-card">
+      <h1>"I HELP RESIDENTIAL<br>SERVICE BUSINESSES GROW"</h1>
+      <div class="subtext">Get more leads...<br />Keep more customers...<br />Build better systems...</div>
+      <button class="hero-button">LET'S CHAT</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <img src="https://github.com/mmp03patane/creative/blob/main/PROFILE%20PHOTO%203.PNG?raw=true" alt="Michael Patane" class="profile-photo" />
+    <p>Hey everyone,</p>
+    <p>I'm <b>Michael Patane</b>, and I run <b>Creative365</b>: A business consultancy that helps residential service businesses grow.</p>
+    <p>I’ve worked with some of the biggest companies in Australia:</p>
+    <p>At <b>GLG</b>, I clocked up <b>hundreds of consulting hours</b> helping service based businesses with anything from franchising advice to lead generation.</p>
+    <p>At <b>Jim’s Group</b>, I helped streamline onboarding operations for franchisees. I taught mowing franchisees how to <b>quote</b>, <b>schedule</b> and <b>invoice clients</b>.</p>
+    <p>At <b>MYOB</b>, I helped businesses drive adoption through education and internal efficiencies.</p>
+  </section>
+
+  <section class="panel">
+    <h2><b>GET MORE LEADS...</b></h2>
+    <p>I started <b>Creative365</b> to build websites that work, ads that convert and systems that scale.</p>
+    <p>From social media campaigns, landing pages, and email marketing to Google reviews & referral systems—I handle it so you don't have to.</p>
+  </section>
+
+  <section class="panel">
+    <h2><b>KEEP MORE CUSTOMERS...</b></h2>
+    <p>What's better than new leads? Customers that keep <b>coming back</b> without hassle.</p>
+    <p>I build customer success systems that drive <b>predictable revenue</b> and <b>reliable customers</b>.</p>
+  </section>
+
+  <section class="panel">
+    <h2><b>SYSTEMS THAT SCALE...</b></h2>
+    <p>Success is great—but it needs to be sustainable.</p>
+    <p>You'd be amazed at how much <b>time</b> and <b>money</b> you can save by reviewing your current processes.</p>
+    <p>I provide expert advice to streamline internal systems and drive efficiency.</p>
+  </section>
+
+  <section class="cta">
+    <h2><b>SO WHAT'S NEXT?</b></h2>
+    <p>🎯 <b>Book a free 30-minute phone chat, and I will:</b></p>
+    <ul>
+      <li>✔️ Review your current setup</li>
+      <li>✔️ Identify your biggest growth opportunities</li>
+      <li>✔️ Share how I can help you scale</li>
+    </ul>
+    <button>Pick a time that suits you</button>
+  </section>
+
+  <script>
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const mobileNav = document.querySelector('.mobile-nav');
+    hamburgerMenu.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
