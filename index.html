@@ -109,12 +109,12 @@
     }
 
     .hero {
-      padding: 4rem 2rem; /* This padding contributes to hero-card's total spacing from edges */
+      padding: 4rem 2rem; /* This provides the outer 2rem horizontal padding */
     }
 
     .hero-card {
       background: #fff;
-      padding: 2rem 2rem;
+      padding: 2rem 2rem; /* This provides the inner 2rem horizontal padding */
       box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
       border-radius: 12px;
       max-width: 800px;
@@ -167,7 +167,7 @@
       max-width: 800px;
       margin: 3rem auto;
       background: #fff;
-      padding: 2rem; /* Base padding */
+      padding: 2rem 2rem; /* MODIFIED: Explicit horizontal/vertical padding */
       box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
       border-radius: 12px;
       animation: slideUp 0.8s ease forwards;
@@ -196,7 +196,7 @@
       text-align: center;
       margin: 4rem auto;
       background: #fff;
-      padding: 2rem; /* Base padding */
+      padding: 2rem 2rem; /* MODIFIED: Explicit horizontal/vertical padding */
       box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
       border-radius: 12px;
       max-width: 800px;
@@ -251,10 +251,10 @@
         font-size: 1.4rem;
       }
 
-      /* NEW ADDITION: Adjust padding for panels and CTA on mobile */
-      .panel, .cta {
-          padding-left: 4rem;
-          padding-right: 4rem;
+      /* CRITICAL CHANGE: Adjust padding for panels and CTA on mobile to match hero-card's effective padding */
+      .panel,
+      .cta {
+          padding: 2rem 4rem; /* Top/bottom 2rem, left/right 4rem */
       }
     }
   </style>
