@@ -44,14 +44,20 @@
       background: linear-gradient(145deg, #ffffff, #e6e6e6);
       text-align: center;
       padding: 6rem 2rem 4rem;
-      animation: fadeIn 1s ease-in-out;
     }
 
     .hero h1 {
       font-family: 'Oswald', sans-serif;
-      font-size: 3rem;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
+      font-size: 4rem;
+      line-height: 1.1;
+      max-width: 500px;
+      margin: 0 auto;
+      animation: slideIn 1.2s ease forwards;
+    }
+
+    .hero p {
+      font-size: 1.6rem;
+      margin-top: 2rem;
     }
 
     .panel {
@@ -106,23 +112,25 @@
       background-color: #5fae60;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
     @keyframes slideUp {
       from { transform: translateY(50px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
 
+    @keyframes slideIn {
+      from { transform: translateX(-50px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
     @media (max-width: 768px) {
       .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
+        max-width: 100%;
+        white-space: pre-line;
       }
 
-      .panel h2 {
-        font-size: 1.6rem;
+      .hero p {
+        font-size: 1.4rem;
       }
     }
   </style>
@@ -136,8 +144,8 @@
   </header>
 
   <section class="hero">
-    <h1>I HELP RESIDENTIAL SERVICE BUSINESSES GROW</h1>
-    <p>Get more leads. Keep more customers. Build better systems.</p>
+    <h1>I HELP RESIDENTIAL<br>SERVICE BUSINESSES GROW</h1>
+    <p>Get more leads...<br>Keep more customers...<br>Build better systems...</p>
   </section>
 
   <section class="panel">
