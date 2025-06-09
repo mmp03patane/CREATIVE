@@ -19,47 +19,45 @@
       background-color: #f7f7f7;
       color: #222;
       line-height: 1.6;
-      font-size: 1.15rem; /* ADJUSTED: Made the base font size more reasonable */
+      font-size: 1.15rem;
     }
 
     header {
       background-color: #000;
       color: #fff;
-      padding: 1rem 2rem; /* Adjusted vertical padding for smaller header */
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative; /* Needed for positioning the mobile nav dropdown */
+      position: relative;
     }
 
-    .logo img { /* Targeting the image within the .logo class */
-      height: 30px; /* Smaller logo height */
+    .logo img {
+      height: 30px;
     }
 
-    /* Desktop Navigation Styles */
     nav.desktop-nav {
-      display: block; /* Show on larger screens by default */
+      display: block;
     }
 
     nav.desktop-nav a {
       color: #fff;
       text-decoration: none;
       margin-left: 2rem;
-      font-family: 'Roboto', sans-serif; /* Changed to Roboto, no bold */
+      font-family: 'Roboto', sans-serif;
       text-transform: uppercase;
-      font-weight: normal; /* Ensure no bold */
+      font-weight: normal;
     }
 
-    /* Hamburger Menu Icon Styles */
     .hamburger-menu {
-      display: none; /* Hidden by default on larger screens */
+      display: none;
       width: 30px;
-      height: 21px; /* Height to accommodate 3 bars with spacing */
+      height: 21px;
       cursor: pointer;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      z-index: 20; /* Ensure it's above other content if necessary */
+      z-index: 20;
     }
 
     .hamburger-menu .bar {
@@ -67,29 +65,28 @@
       width: 100%;
       height: 3px;
       background-color: #fff;
-      transition: all 0.3s ease-in-out; /* Smooth transition for potential animations */
+      transition: all 0.3s ease-in-out;
     }
 
-    /* Mobile Navigation Styles (Dropdown) */
     nav.mobile-nav {
-      display: none; /* Hidden by default */
+      display: none;
       position: absolute;
-      top: 100%; /* Position right below the header */
+      top: 100%;
       left: 0;
       width: 100%;
       background-color: #000;
       box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      z-index: 15; /* Ensure it's above other page content but below hamburger if needed */
-      padding: 1rem 0; /* Vertical padding for dropdown items */
+      z-index: 15;
+      padding: 1rem 0;
       text-align: center;
     }
 
     nav.mobile-nav a {
       color: #fff;
       text-decoration: none;
-      font-family: 'Roboto', sans-serif; /* Roboto font for mobile menu as well */
-      font-weight: normal; /* No bold for mobile menu */
-      display: block; /* Make links take full width for easier tapping */
+      font-family: 'Roboto', sans-serif;
+      font-weight: normal;
+      display: block;
       padding: 0.8rem 1rem;
       text-transform: uppercase;
       transition: background-color 0.2s ease;
@@ -104,14 +101,12 @@
       padding: 0;
       margin: 0;
       display: flex;
-      flex-direction: column; /* Stack items vertically */
+      flex-direction: column;
     }
 
-    /* Class to show the mobile nav via JavaScript */
     nav.mobile-nav.open {
       display: block;
     }
-
 
     .hero {
       padding: 4rem 2rem;
@@ -122,7 +117,7 @@
       padding: 2rem 2rem;
       box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
       border-radius: 12px;
-      max-width: 800px;
+      max-width: 800px; /* Reference max-width */
       margin: 0 auto;
       text-align: center;
       animation: slideUp 0.8s ease forwards;
@@ -151,14 +146,13 @@
       margin-bottom: 2rem;
     }
 
-    /* Corrected font-family for the hero button */
     .hero-card .hero-button {
       background-color: #78C976;
       color: #fff;
       border: none;
       padding: 1rem 2rem;
       font-size: 1.2rem;
-      font-family: 'Roboto', sans-serif; /* Changed to Roboto */
+      font-family: 'Roboto', sans-serif; /* Corrected to Roboto */
       text-transform: uppercase;
       border-radius: 8px;
       cursor: pointer;
@@ -170,8 +164,8 @@
     }
 
     .panel {
-      max-width: 1000px;
-      margin: 3rem auto;
+      max-width: 800px; /* MODIFIED: Set to match hero-card max-width */
+      margin: 3rem auto; /* Maintained vertical spacing, but horizontally centered within the new max-width */
       background: #fff;
       padding: 2rem;
       box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
@@ -186,7 +180,6 @@
     }
 
     .panel p {
-      /* Removed font-size: 1.1rem; to inherit from body for consistency */
       margin-bottom: 1rem;
     }
 
@@ -201,7 +194,13 @@
 
     .cta {
       text-align: center;
-      margin: 4rem 2rem;
+      margin: 4rem auto; /* MODIFIED: Centered horizontally, preserved vertical spacing */
+      background: #fff; /* ADDED: To match hero-card/panel background */
+      padding: 2rem; /* ADDED: To match hero-card/panel padding */
+      box-shadow: 0px 10px 20px rgba(0,0,0,0.1); /* ADDED: To match hero-card/panel shadow */
+      border-radius: 12px; /* ADDED: To match hero-card/panel border-radius */
+      max-width: 800px; /* ADDED: To match hero-card/panel max-width */
+      animation: slideUp 0.8s ease forwards; /* ADDED: To match hero-card/panel animation */
     }
 
     .cta button {
@@ -221,9 +220,8 @@
       background-color: #5fae60;
     }
 
-    /* Added font-size for the CTA list items for consistency */
     .cta ul li {
-        font-size: 1.15rem; /* Matches the body font-size */
+        font-size: 1.15rem;
     }
 
     @keyframes slideUp {
@@ -236,16 +234,13 @@
       to { transform: translateX(0); opacity: 1; }
     }
 
-    /* Media query for mobile devices */
     @media (max-width: 768px) {
-      /* Hide desktop navigation */
       nav.desktop-nav {
         display: none;
       }
 
-      /* Show hamburger menu */
       .hamburger-menu {
-        display: flex; /* Flexbox for column layout of bars */
+        display: flex;
       }
 
       .hero-card h1 {
