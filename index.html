@@ -174,24 +174,20 @@
       margin-bottom: 1.5rem;
     }
 
-    /* Hero Button Styles (adjusting for the script-generated button) */
-    /* The Google Calendar script generates its own button.
-       If you want to style it, you'd target its generated classes.
-       The below .hero-button styling might not directly apply if it's
-       replaced by the script, but the color property in the script helps. */
-    .hero-button { /* Keeping this for existing elements or if the script uses it */
+    /* Hero Button Styles (applying to the script-generated button via class) */
+    .hero-button {
       background-color: #78C976;
       color: #fff;
       border: none;
       padding: 1rem 2rem;
-      font-size: 1.2rem;
+      font-size: 1.2rem; /* Adjusted to match "Book a FREE 30-minute chat" */
       font-family: 'Oswald', sans-serif;
       text-transform: uppercase;
       border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s ease;
       animation: slideInLeft 1s ease forwards;
-      display: inline-block; /* Ensure it behaves like a block for styling */
+      display: inline-block;
       text-decoration: none;
     }
     .hero-button:hover {
@@ -395,8 +391,6 @@ Then let’s build a system that keeps the phone ringing and the cashflow steady
 
     <p>👇 Pick a time that suits!</p>
 
-    ---
-
     <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
     <script>
     (function() {
@@ -406,6 +400,7 @@ Then let’s build a system that keeps the phone ringing and the cashflow steady
           url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3AgJLV95DsanjqZg-EruNwyU4GBaNJPOcxtvDgDUeLV8qOmTaQIuKAh5WT2BRZtIVv0iWXd59u?gv=true',
           color: '#33B679', // This sets the button color
           label: "Let's Chat", // This sets the button text
+          className: "hero-button", // Apply your existing button styling
           target,
         });
       });
@@ -451,15 +446,12 @@ At <b>MYOB</b>, I assisted medium sized businesses to engage digitally and drive
       Customer success, Retention strategies, Repeat customer and loyalty strategies, Advocacy planning.
 
     </p>
+  </section>
 
-    ---
-
-    <div style="margin-top: 2rem;">
-        <h3>Book Your FREE 30-Minute Chat Below:</h3>
-        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3AgJLV95DsanjqZg-EruNwyU4GBaNJPOcxtvDgDUeLV8qOmTaQIuKAh5WT2BRZtIVv0iWXd59u?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
-    </div>
-    </section>
-
+  <section class="panel">
+    <h3>Book Your FREE 30-Minute Chat Below:</h3>
+    <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3AgJLV95DsanjqZg-EruNwyU4GBaNJPOcxtvDgDUeLV8qOmTaQIuKAh5WT2BRZtIVv0iWXd59u?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+  </section>
   <script>
     function toggleMobileMenu() {
       document.getElementById("mobileNav").classList.toggle("open");
