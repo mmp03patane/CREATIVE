@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Creative365</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400&family=Oswald:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet" />
-  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
   <style>
     /* Universal Box-sizing and Base Styles */
     * {
@@ -20,9 +19,11 @@
       line-height: 1.6;
       font-size: 1.15rem;
       text-align: center;
+      /* Smooth scroll for anchor links */
+      scroll-behavior: smooth;
     }
 
-    /* Header Styles */
+    
     header {
       background-color: #000;
       color: #fff;
@@ -36,7 +37,7 @@
       height: 30px;
     }
 
-    /* Desktop Navigation */
+    
     nav.desktop-nav {
       display: block;
     }
@@ -48,7 +49,7 @@
       text-transform: uppercase;
     }
 
-    /* Hamburger Menu (Hidden by default on desktop) */
+    
     .hamburger-menu {
       display: none;
       width: 30px;
@@ -64,7 +65,7 @@
       width: 100%;
     }
 
-    /* Mobile Navigation (Hidden by default, shown with JS) */
+  
     nav.mobile-nav {
       display: none;
       position: absolute;
@@ -164,37 +165,35 @@
     .mobile-line1, .mobile-line2, .mobile-scroll {
       display: none;
     }
-    /* --- End Styles for the Scrolling Text Hero Section --- */
-
-    /* Hero Paragraph Styling */
+   
     .hero p {
-      font-size: 1.3rem;
+      font-size: 1.3rem; /* All hero paragraphs will be this size */
       color: #333;
       margin-top: 1.5rem;
       margin-bottom: 1.5rem;
     }
 
-    /* Hero Button Styles (applying to the script-generated button via class) */
+   
     .hero-button {
       background-color: #78C976;
       color: #fff;
       border: none;
       padding: 1rem 2rem;
-      font-size: 1.2rem; /* Adjusted to match "Book a FREE 30-minute chat" */
+      font-size: 1.3rem; /* Set to match .hero p font-size */
       font-family: 'Oswald', sans-serif;
       text-transform: uppercase;
       border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s ease;
       animation: slideInLeft 1s ease forwards;
-      display: inline-block;
-      text-decoration: none;
+      display: inline-block; /* Essential for padding/sizing on anchor tags */
+      text-decoration: none; /* Remove underline from anchor */
     }
     .hero-button:hover {
       background-color: #5fae60;
     }
 
-    /* Panel and CTA Section Styles */
+    
     .panel, .cta {
       max-width: 800px;
       margin: 3rem auto;
@@ -206,7 +205,7 @@
       animation: slideUp 0.8s ease forwards;
     }
 
-    /* H2 styles for Panel and CTA */
+    
     .panel h2, .cta h2 {
       font-family: 'Oswald', sans-serif;
       font-size: 2.5rem;
@@ -236,12 +235,7 @@
       padding: 0;
     }
 
-    li::before {
-      content: '✔️ ';
-      margin-right: 5px;
-    }
-
-    /* Keyframe Animations */
+    
     @keyframes slideUp {
       from { transform: translateY(50px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
@@ -249,6 +243,24 @@
     @keyframes slideInLeft {
       from { transform: translateX(-50px); opacity: 0; }
       to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* New style for the booking section (not a panel) */
+    .booking-section {
+        max-width: 800px; /* Same width as other sections */
+        margin: 3rem auto; /* Consistent vertical spacing */
+        padding: 0 2rem; /* Keep some horizontal padding from the edges */
+        text-align: center;
+        animation: slideUp 0.8s ease forwards; /* Keep the animation */
+    }
+
+    /* Specific styling for the H3 within this new booking section */
+    .booking-section h3 {
+        font-family: 'Oswald', sans-serif;
+        font-size: 2.5rem; /* Consistent with other H2s */
+        color: #000;
+        margin-bottom: 1rem;
+        animation: slideInLeft 1s ease forwards;
     }
 
     /* --- MEDIA QUERIES FOR MOBILE (max-width: 767px) --- */
@@ -326,6 +338,10 @@
       .hero .subtext, .panel p, .cta p, .cta ul li {
         font-size: 1.3rem;
       }
+      /* Specific size for the new booking section heading on mobile */
+      .booking-section h3 {
+          font-size: 2.2rem; /* Consistent with mobile H2s */
+      }
     }
   </style>
 </head>
@@ -391,22 +407,9 @@ Then let’s build a system that keeps the phone ringing and the cashflow steady
 
     <p>👇 Pick a time that suits!</p>
 
-    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-    <script>
-    (function() {
-      var target = document.currentScript;
-      window.addEventListener('load', function() {
-        calendar.schedulingButton.load({
-          url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3AgJLV95DsanjqZg-EruNwyU4GBaNJPOcxtvDgDUeLV8qOmTaQIuKAh5WT2BRZtIVv0iWXd59u?gv=true',
-          color: '#33B679', // This sets the button color
-          label: "Let's Chat", // This sets the button text
-          className: "hero-button", // Apply your existing button styling
-          target,
-        });
-      });
-    })();
-    </script>
-    </section>
+    <a href="#booking-section" class="hero-button">LET'S CHAT</a>
+
+  </section>
 
   <section class="panel">
     <img src="https://github.com/mmp03patane/creative/blob/main/PROFILE%20PHOTO%203.PNG?raw=true" alt="Your Photo" class="profile-photo" />
@@ -448,7 +451,9 @@ At <b>MYOB</b>, I assisted medium sized businesses to engage digitally and drive
     </p>
   </section>
 
-  <section class="panel">
+  
+
+  <section class="booking-section" id="booking-section">
     <h3>Book Your FREE 30-Minute Chat Below:</h3>
     <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3AgJLV95DsanjqZg-EruNwyU4GBaNJPOcxtvDgDUeLV8qOmTaQIuKAh5WT2BRZtIVv0iWXd59u?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
   </section>
