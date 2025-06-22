@@ -19,7 +19,7 @@
       line-height: 1.6;
       font-size: 1.15rem;
       text-align: center;
-      /* Removed scroll-behavior: smooth as there's no anchor to scroll to */
+      scroll-behavior: smooth; /* Re-added for smooth scrolling to sections */
     }
 
     /* Header Styles */
@@ -30,8 +30,19 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
+      position: fixed; /* Changed from relative to fixed */
+      width: 100%; /* Ensure it spans the full width */
+      top: 0; /* Position at the top */
+      left: 0;
+      z-index: 100; /* Ensure header is above other content for mobile menu */
+      transition: top 0.3s ease-in-out; /* Added transition for smooth hide/show */
     }
+
+    /* Class to hide the header */
+    header.hidden {
+      top: -100px; /* Adjust this value if your header height is different */
+    }
+
     .logo img {
       height: 30px;
     }
@@ -46,6 +57,10 @@
       margin-left: 2rem;
       font-family: 'Roboto', sans-serif;
       text-transform: uppercase;
+      transition: color 0.3s ease; /* Added transition for hover */
+    }
+    nav.desktop-nav a:hover {
+      color: #78C976; /* Hover color for consistency with main button */
     }
 
     /* Hamburger Menu (Hidden by default on desktop) */
@@ -71,9 +86,12 @@
       top: 100%;
       left: 0;
       width: 100%;
-      background-color: #000;
-      z-index: 15;
+      background-color: rgba(0, 0, 0, 0.95); /* Slightly transparent black */
+      z-index: 90; /* Below header, above content */
       text-align: right;
+      padding-top: 1rem; /* Added some padding */
+      padding-bottom: 1rem; /* Added some padding */
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Added shadow */
     }
     nav.mobile-nav.open {
       display: block;
@@ -81,10 +99,24 @@
     nav.mobile-nav a {
       color: #fff;
       display: block;
-      padding: 1rem;
+      padding: 0.8rem 1.5rem; /* Adjusted padding */
       text-transform: uppercase;
       font-family: 'Roboto', sans-serif;
+      transition: background-color 0.3s ease; /* Added transition */
+      border-bottom: 1px solid transparent; /* Changed from rgba to transparent */
     }
+    nav.mobile-nav a:last-child {
+      border-bottom: none; /* No border for the last item */
+    }
+    nav.mobile-nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1); /* Hover effect */
+    }
+
+    /* Adjust main content to not be hidden by fixed header */
+    body {
+      padding-top: 56px; /* Adjust this value to match your header's height */
+    }
+
 
     /* Hero Section Styles */
     .hero {
@@ -189,6 +221,7 @@
       animation: slideInLeft 1s ease forwards;
       display: inline-block; /* Essential for padding/sizing on anchor tags */
       text-decoration: none; /* Remove underline if it were an anchor */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Added shadow */
     }
     .hero-button:hover {
       background-color: #5fae60;
@@ -214,6 +247,16 @@
       margin-bottom: 1rem;
       animation: slideInLeft 1s ease forwards;
     }
+    /* General section title style for new sections */
+    .section-title {
+        font-family: 'Oswald', sans-serif;
+        font-size: 2.5rem;
+        color: #000; /* Default black for section titles */
+        margin-bottom: 2.5rem; /* Consistent with JUNK's h2 margin */
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+    }
+
 
     /* Paragraph and List Item styles */
     .panel p, .cta p, .cta ul li {
@@ -246,10 +289,125 @@
       to { transform: translateX(0); opacity: 1; }
     }
 
-    /* Removed .booking-section specific styles as it's not present */
+    /* --- NEW FAQ SECTION STYLES (based on JUNK/ELECTRIC, adapted to CREATIVE palette) --- */
+    .faq-section {
+      background-color: #ffffff; /* White background */
+      padding: 4rem 1rem;
+      text-align: center;
+    }
 
-    /* --- MEDIA QUERIES FOR MOBILE (max-width: 767px) --- */
+    .faq-section .section-title {
+      color: #000000; /* Black heading color */
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle shadow */
+    }
+
+    .faq-question {
+      background-color: #f0f0f0; /* Light grey, similar to JUNK */
+      padding: 1rem 1.5rem;
+      font-family: 'Roboto', sans-serif;
+      font-weight: bold;
+      font-size: 1.3rem; /* Adjusted from 1.2rem to 1.3rem as per user's preference for this group */
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+      color: #222; /* Dark text for question */
+    }
+
+    .faq-question:hover {
+      background-color: #e0e0e0;
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-question.active::after {
+      content: '-';
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      padding: 1rem 1.5rem;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 1.3rem; /* Adjusted from 1.2rem to 1.3rem as per user's preference for this group */
+      background-color: #fff;
+      border-top: 1px solid #eee;
+      display: none; /* Hidden by default */
+      overflow: hidden;
+      color: #555; /* Slightly lighter text for answer */
+    }
+
+    
+    .contact-section {
+      background-color: #f7f7f7; /* Changed from green to light grey */
+      padding: 4rem 1rem;
+      text-align: center;
+      color: #222; /* Changed from white to dark text for heading */
+    }
+
+    .contact-section .section-title {
+        color: #000000; /* Changed from white to black heading color */
+        margin-bottom: 1.5rem; /* Adjusted for less space */
+    }
+
+    /* Added this rule to make the paragraph font size consistent */
+    .contact-section p {
+        font-size: 1.3rem;
+        color: #333; /* Consistent with other main paragraphs */
+        margin-bottom: 1rem; /* Adjust margin as needed */
+    }
+
+    .contact-form-container { /* This will act like the "panel" within the full-width section */
+        max-width: 700px; /* Based on ELECTRIC's form width */
+        margin: 0 auto;
+        padding: 3rem 2rem; /* Similar to JUNK's form panel padding */
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: left;
+        color: #222; /* Dark text inside form panel */
+    }
+    .contact-form-container .quote-subtext {
+        font-size: 1.3rem; /* Maintained at 1.3rem as it was */
+        color: #666;
+        margin-bottom: 25px;
+        text-align: center; /* Center align subtext */
+    }
+    
+    
+    .contact-form-container iframe {
+        display: block; /* Ensure iframe behaves like a block element */
+        margin: 0 auto; /* Center the iframe */
+        max-width: 100%; /* Ensure it's responsive */
+        height: 600px; /* Keep the requested height */
+        border-radius: 8px; /* Match form container's border-radius */
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Subtle shadow for iframe */
+    }
+
+    
     @media (max-width: 767px) {
+      /* Adjust body padding for mobile too */
+      body {
+        padding-top: 70px; /* Adjust for mobile header height if different */
+      }
+
       .hero,
       .panel,
       .cta {
@@ -317,19 +475,60 @@
         display: none;
       }
 
+      header {
+        padding: 0.8rem 1.5rem; 
+      }
+      .logo img {
+        height: 30px; 
+      }
+      .logo { /* Rule for logo position on mobile */
+        margin-right: auto; /* Pushes the logo to the left */
+      }
+
       .hero h1, .panel h2, .cta h2 {
         font-size: 2.2rem;
       }
-      .hero .subtext, .panel p, .cta p, .cta ul li {
-        font-size: 1.3rem;
+      .hero p, .panel p, .cta p, .cta ul li {
+        font-size: 1.3rem; /* Consistent with desktop body font size */
+      }
+      .hero-button {
+        font-size: 1.25rem; 
+        padding: 0.7rem 1.8rem;
+      }
+
+      
+      .section-title {
+        font-size: 2.2rem; 
+        margin-bottom: 1.5rem;
+      }
+      .faq-section {
+        padding: 3rem 1rem;
+      }
+      .faq-question {
+        font-size: 1.2rem;
+        padding: 0.8rem 1rem;
+      }
+      .faq-answer {
+        font-size: 1.2rem;
+        padding: 0.8rem 1rem;
+      }
+      .contact-section {
+        padding: 3rem 1rem;
+      }
+      .contact-form-container {
+        padding: 2rem 1.5rem;
+        max-width: 90%; 
+      }
+      
+      .contact-form-container iframe {
+          height: 500px; 
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <a href="#" class="logo">
-      <img src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" />
+    <a href="#" class="logo">      <img src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" />
     </a>
     <div class="hamburger-menu" onclick="toggleMobileMenu()">
       <div class="bar"></div>
@@ -337,32 +536,37 @@
       <div class="bar"></div>
     </div>
     <nav class="desktop-nav">
-      <a href="#">Contact</a>
+      <a href="#about-section">About</a>
+      <a href="#expertise-section">Expertise</a>
+      <a href="#faq-section">FAQ</a>
+      <a href="#contact-section">Contact</a>
     </nav>
     <nav class="mobile-nav" id="mobileNav">
-      <a href="#">Contact</a>
+      <a href="#about-section" onclick="toggleMobileMenu()">About</a>
+      <a href="#expertise-section" onclick="toggleMobileMenu()">Expertise</a>
+      <a href="#faq-section" onclick="toggleMobileMenu()">FAQ</a>
+      <a href="#contact-section" onclick="toggleMobileMenu()">Contact</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="scroll-wrapper desktop-hero">
-      <span class="desktop-line1">LET'S GROW YOUR BUSINESS</span>
-      <div class="desktop-line2">
-        <span>WITH</span>
-        <div class="scroll-container">
-          <div class="scroll-text">
-            <div>INSTAGRAM ADS</div>
-            <div>FACEBOOK ADS</div>
-            <div>GOOGLE ADS</div>
-            <div>A NEW WEBSITE</div>
-            <div>FACEBOOK ADS</div>
-            <div>INSTAGRAM ADS</div>
-            <div>GOOGLE ADS</div>
-            <div>A NEW WEBSITE</div>
-          </div>
+  <section class="hero" id="hero-section"> <div class="scroll-wrapper desktop-hero">
+    <span class="desktop-line1">LET'S GROW YOUR BUSINESS</span>
+    <div class="desktop-line2">
+      <span>WITH</span>
+      <div class="scroll-container">
+        <div class="scroll-text">
+          <div>INSTAGRAM ADS</div>
+          <div>FACEBOOK ADS</div>
+          <div>GOOGLE ADS</div>
+          <div>A NEW WEBSITE</div>
+          <div>FACEBOOK ADS</div>
+          <div>INSTAGRAM ADS</div>
+          <div>GOOGLE ADS</div>
+          <div>A NEW WEBSITE</div>
         </div>
       </div>
     </div>
+  </div>
 
     <div class="scroll-wrapper mobile-hero">
       <span class="mobile-line1">LET'S GROW YOUR</span>
@@ -381,19 +585,16 @@
       </div>
     </div>
 
-    <p style="font-style: italic;">🚀 Are you looking for more leads? More repeat customers?
+    <p style="font-style: italic;">🚀 Looking for more leads? <br> More predictable revenue? <br> 
 Then let’s build a system that keeps the phone ringing and the cashflow steady.</p>
 
-    <p><strong>Book a FREE 30-minute chat</strong></p>
+    <p><strong>Book a FREE chat now</strong></p>
 
-    <p>👇 Pick a time that suits!</p>
+    <p>Pick a time that suits 👇</p>
 
-    <button class="hero-button">Let's Chat</button>
+    <button class="hero-button" onclick="window.location.href='#contact-section'">Let's Chat</button> </section>
 
-  </section>
-
-  <section class="panel">
-    <img src="https://github.com/mmp03patane/creative/blob/main/PROFILE%20PHOTO%203.PNG?raw=true" alt="Your Photo" class="profile-photo" />
+  <section class="panel" id="about-section"> <img src="https://github.com/mmp03patane/creative/blob/main/PROFILE%20PHOTO%203.PNG?raw=true" alt="Your Photo" class="profile-photo" />
 
     <p>Hey everyone, <br><br>
 
@@ -411,31 +612,141 @@ At <b>Jim’s Group</b>, I helped streamline onboarding operations for franchise
       <br>
       I hosted a monthly lecture teaching mowing franchisees how to use technology to <b>quote</b>, <b>schedule</b> and <b>invoice</b> clients.
 <br><br>
-At <b>MYOB</b>, I assisted medium sized businesses to engage digitally and drive adoption through education. I focused on <b>internal efficiencies</b> to <b>elevate customer success experiences</b>.</p>
+At <b>MYOB</b>, I assisted medium sized businesses to engage digitally and drive adoption through education. I focused on <b>internal efficiencies</b> to <b>elevate customer success experiences</b>.
+<br><br>
+And now, with <b>Creative365</b>, I help service based business grow by designing <b>customer acquisition</b> and <b>retention</b> strategies that generate <b>predictable revenue</b>.</p>
 
   </section>
 
-  <section class="cta">
-    <h2>WHAT YOU GET</h2>
-
-    <p>How we work together is <b>completely up to you</b>. <br><br>
-      My engagement can be purely advisory: <i>I offer you the advice and the steps you need to take, but implementation will be your responsibility</i>. <br><br>
-      Alternatively, you can retain me on a <b>"done-for-you"</b> basis where I build the strategy and execute the work for you, <i>freeing you up to focus on running your business</i>.<br><br>
-      <u>Areas of expertise</u>:<br><br>
-      <b>MARKETING</b><br>
+  <section class="cta" id="expertise-section"> <h2 class="section-title">EXPERTISE</h2> <p>
+As your business consultant, I can help you grow your business via the following:<br><br>
+      
+      <b><u>MARKETING</u></b><br>
       Website building, Lead generation, Email marketing, Google ads, Facebook ads, Instagram ads, Linkedin Ads, Youtube Ads, Sales training, Sales process improvement, Conversion optimization, Competitor analysis.<br><br>
-      <b>OPERATIONS</b><br>
+      <b><u>OPERATIONS</u></b><br>
       Internal processes optimization, business coaching, mindset coaching, time and cost saving strategies.<br><br>
-      <b>RETENTION</b><br>
+      <b><u>RETENTION</u></b><br>
       Customer success, Retention strategies, Repeat customer and loyalty strategies, Advocacy planning.
 
     </p>
+  </section>
+
+  <section class="faq-section" id="faq-section">
+    <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">What services does Creative365 offer?</div>
+        <div class="faq-answer">Creative365 offers business consultancy focusing on marketing (website building, lead generation, various ad types), operations (internal process optimization, coaching), and retention (customer success, loyalty strategies).</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How can we work together?</div>
+        <div class="faq-answer">You have two main options. 1. Advisory Only: I provide strategic advice and a clear action plan, but you handle the implementation.
+2. Done-For-You: I handle both the strategy and execution, so you can stay focused on running your business.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What does “advisory only” mean?</div>
+        <div class="faq-answer">In this arrangement, I guide you through what needs to be done and how to do it. You're responsible for putting the plan into action.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What is included in the “done-for-you” service?</div>
+        <div class="faq-answer">I take care of both planning and implementing the strategy. You get a turnkey solution without having to manage the day-to-day details.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What types of businesses do you work with?</div>
+        <div class="faq-answer">Creative365 primarily helps residential service businesses, including but not limited to electricians, plumbers, gardeners, and general trades.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact-section">
+    <h2 class="section-title">CONTACT</h2>
+    <p>If you've got any questions feel free to reach out.<br><br>
+E: <a href="mailto:michael@creative365.info"><b>michael@creative365.info</b></a><br>
+Connect with me on <a href="https://www.linkedin.com/in/patane-michael/" target="_blank">LinkedIn</a>.<br><br>
+Or book a quick phone call via my Google Calendar below — whatever works best for you.<br><br>     
+    </p>
+    <div class="contact-form-container">
+        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3AgJLV95DsanjqZg-EruNwyU4GBaNJPOcxtvDgDUeLV8qOmTaQIuKAh5WT2BRZtIVv0iWXd59u?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+    </div>
   </section>
 
   <script>
     function toggleMobileMenu() {
       document.getElementById("mobileNav").classList.toggle("open");
     }
+
+    // FAQ Toggle Functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      // --- FIX 1: Force scroll to top on initial page load/refresh ---
+      window.scrollTo(0, 0);
+
+      const faqQuestions = document.querySelectorAll('.faq-question');
+
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const answer = question.nextElementSibling;
+          question.classList.toggle('active');
+
+          if (answer.style.display === 'block') {
+            answer.style.display = 'none';
+          } else {
+            answer.style.display = 'block';
+          }
+        });
+      });
+
+      // --- FIX 2: Adjust smooth scroll for navigation links, especially the logo ---
+      document.querySelectorAll('nav a[href^="#"], .hero-button[href^="#"], .logo[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+
+            // If the target is just "#" (or "#top" if you use it), scroll to (0,0)
+            if (targetId === '#') {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                // For other section links, scroll to them with an offset for the fixed header
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = document.querySelector('header').offsetHeight; // Get current header height
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+
+            // Close mobile menu if open
+            if (document.getElementById("mobileNav").classList.contains("open")) {
+                toggleMobileMenu();
+            }
+        });
+      });
+
+      // --- Header Scroll Behavior ---
+      let lastScrollY = window.scrollY;
+      const header = document.querySelector('header');
+      const headerHeight = header.offsetHeight; // Get the header's actual height
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > lastScrollY && window.scrollY > headerHeight) {
+          // Scrolling down and past the header height
+          header.classList.add('hidden');
+        } else if (window.scrollY < lastScrollY) {
+          // Scrolling up
+          header.classList.remove('hidden');
+        }
+        lastScrollY = window.scrollY;
+      });
+      // --- End Header Scroll Behavior ---
+    });
   </script>
 </body>
 </html>
