@@ -249,12 +249,21 @@
     /* General section title style for new sections */
     .section-title {
         font-family: 'Oswald', sans-serif;
-        font-size: 2.5rem;
+        font-size: 2.5rem; /* This is the base for H2s */
         color: #000; /* Default black for section titles */
-        margin-bottom: 2.5rem; /* Consistent with JUNK's h2 margin */
+        margin-bottom: 2.5rem;
         text-transform: uppercase;
         letter-spacing: 1.5px;
     }
+    /* SPECIFIC STYLE FOR CONTACT SECTION TITLE TO MATCH HERO H1 */
+    .contact-section .section-title {
+        font-size: 2.5rem; /* Matches desktop line1/line2 font size */
+        font-weight: 700; /* Oswald weight 700 */
+        letter-spacing: 0; /* Remove extra letter spacing for H1 style */
+        text-transform: none; /* Remove uppercase, rely on Oswald's natural strong appearance */
+        margin-bottom: 1.5rem; /* Adjusted for less space below title */
+    }
+
 
     /* Paragraph and List Item styles */
     .panel p, .cta p, .cta ul li {
@@ -349,10 +358,6 @@
       text-align: center;
       color: #222; /* Dark text for heading */
     }
-    .contact-section .section-title {
-        color: #000000; /* Black heading color */
-        margin-bottom: 1.5rem; /* Adjusted for less space */
-    }
     .contact-section p {
         font-size: 1.3rem;
         color: #333; /* Consistent with other main paragraphs */
@@ -367,6 +372,7 @@
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         text-align: left;
         color: #222; /* Dark text inside form panel */
+        position: relative; /* For absolute positioning of overlay */
     }
     /* New form-group styling for input fields */
     .form-group-creative {
@@ -419,8 +425,8 @@
         transition: background-color 0.3s ease, box-shadow 0.3s ease;
         box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         width: auto; /* Allow button to size based on content */
-        display: inline-block; /* Ensure it behaves like a block for margin/padding */
-        margin-top: 1rem; /* Space above button */
+        display: block; /* Make it a block element to allow margin:auto for centering */
+        margin: 1rem auto; /* Center the button */
     }
     .form-submit-button:hover {
         background-color: #5fae60;
@@ -433,15 +439,57 @@
         display: block; /* Ensure it takes its own line */
     }
 
-    /* Original iframe styling, commented out as we are replacing with custom form */
-    /*.contact-form-container iframe {
-        display: block;
-        margin: 0 auto;
-        max-width: 100%;
-        height: 600px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }*/
+    /* Thank You Panel Styling */
+    .thank-you-panel {
+        position: absolute; /* Position over the form container */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff; /* Same background as form container */
+        border-radius: 12px;
+        display: flex; /* Use flexbox for centering content */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        box-sizing: border-box; /* Include padding in height/width */
+        opacity: 0; /* Start hidden */
+        visibility: hidden;
+        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    }
+    .thank-you-panel.show {
+        opacity: 1;
+        visibility: visible;
+    }
+    .thank-you-panel h3 {
+        font-family: 'Oswald', sans-serif;
+        font-size: 2rem;
+        color: #78C976; /* Green for success */
+        margin-bottom: 1rem;
+    }
+    .thank-you-panel p {
+        font-size: 1.3rem;
+        color: #333;
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+    }
+    .thank-you-panel strong {
+        color: #000;
+    }
+    /* Style for the "Prefer to reach out directly?" text below the form */
+    .contact-alternatives {
+        margin-top: 1.5rem;
+        font-size: 1rem;
+        color: #555;
+        text-align: center; /* Center align this paragraph */
+    }
+    .contact-alternatives a {
+        color: #78C976;
+        text-decoration: none;
+    }
+
 
     @media (max-width: 767px) {
       /* Adjust body padding for mobile too */
@@ -528,6 +576,10 @@
       .section-title {
         font-size: 2.2rem;
         margin-bottom: 1.5rem;
+      }
+      /* Contact section title on mobile */
+      .contact-section .section-title {
+          font-size: 2.2rem; /* Consistent with other mobile H2s */
       }
       .faq-section {
         padding: 3rem 1rem;
@@ -671,16 +723,15 @@
   </section>
 
   <section class="contact-section" id="contact-section">
-    <h2 class="section-title">LET'S CONNECT & GROW</h2>
+    <h2 class="section-title">CONTACT</h2> <!-- Changed from "LET'S CONNECT & GROW" to "CONTACT" -->
     <p>Ready to discuss how Creative365 can help your business thrive?</p>
-    <p>Book a **free, no-obligation chat** at your preferred time, or send me a message directly. I'm here to answer your questions and explore tailored solutions.</p>
+    <p>Book a <strong>FREE, no-obligation chat</strong> at your preferred time, or send me a message directly. I'm here to answer your questions and explore tailored solutions.</p>
 
     <div class="contact-form-container">
         <!-- Add a message container for form success/error -->
         <div id="formStatusMessage" class="form-error-message" style="display: none; text-align: center; margin-bottom: 1.5rem;"></div>
 
-        <!-- REPLACE 'YOUR_FORMSPREE_ENDPOINT_URL' with your actual Formspree endpoint -->
-        <!-- Example: https://formspree.io/f/xyza123 -->
+        <!-- The main contact form -->
         <form id="creative365ContactForm" method="POST" action="https://formspree.io/f/xpwroqvr">
             <div class="form-group-creative">
                 <label for="fullName">Your Full Name*</label>
@@ -695,8 +746,9 @@
             </div>
 
             <div class="form-group-creative">
-                <label for="phoneNumber">Your Phone Number (Optional)</label>
-                <input type="tel" id="phoneNumber" name="Phone" placeholder="e.g., 04XX XXX XXX">
+                <label for="phoneNumber">Your Phone Number*</label> <!-- Made required -->
+                <input type="tel" id="phoneNumber" name="Phone" placeholder="e.g., 04XX XXX XXX" required>
+                <span class="form-error-message" id="phoneError" style="display: none;"></span> <!-- Added error span -->
             </div>
 
             <div class="form-group-creative">
@@ -750,8 +802,20 @@
             <button type="submit" class="form-submit-button">Book My Free Chat</button>
         </form>
 
-        <p style="margin-top: 1.5rem; font-size: 1rem; color: #555;">
-            Prefer to reach out directly? E: <a href="mailto:michael@creative365.info" style="color: #78C976; text-decoration: none;"><b>michael@creative365.info</b></a>
+        <!-- Thank You Panel - Initially hidden -->
+        <div id="thankYouPanel" class="thank-you-panel">
+            <h3>Thank You!</h3>
+            <p>Hi <strong><span id="thankYouName"></span></strong>,</p>
+            <p>Your request has been successfully submitted. I will be in touch within 1 business day to confirm your chat time.</p>
+            <p>You requested to discuss <strong><span id="thankYouInterest"></span></strong> on <strong><span id="thankYouDate"></span></strong> at <strong><span id="thankYouTime"></span></strong>.</p>
+            <p style="margin-top: 1.5rem; font-size: 1.1rem;">
+                I'm excited to connect and help your business grow!
+            </p>
+        </div>
+
+        <p class="contact-alternatives"> <!-- Added class for styling -->
+            Prefer to reach out directly?<br> <!-- Line break added here -->
+            E: <a href="mailto:michael@creative365.info" style="color: #78C976; text-decoration: none;"><b>michael@creative365.info</b></a>
             <br>Or connect on <a href="https://www.linkedin.com/in/patane-michael/" target="_blank" style="color: #78C976; text-decoration: none;">LinkedIn</a>.
         </p>
     </div>
@@ -830,6 +894,11 @@
       const preferredDateInput = document.getElementById('preferredDate');
       const preferredTimeSlotSelect = document.getElementById('preferredTimeSlot');
       const formStatusMessage = document.getElementById('formStatusMessage');
+      const thankYouPanel = document.getElementById('thankYouPanel'); // New: Thank You Panel
+      const thankYouName = document.getElementById('thankYouName'); // New: Thank You Name Span
+      const thankYouDate = document.getElementById('thankYouDate'); // New: Thank You Date Span
+      const thankYouTime = document.getElementById('thankYouTime'); // New: Thank You Time Span
+      const thankYouInterest = document.getElementById('thankYouInterest'); // New: Thank You Interest Span
 
       function formatIsoDate(date) {
           const year = date.getFullYear();
@@ -855,6 +924,7 @@
           const requiredFields = [
               { id: 'fullName', name: 'Name', errorId: 'nameError' },
               { id: 'emailAddress', name: 'Email', errorId: 'emailError', type: 'email' },
+              { id: 'phoneNumber', name: 'Phone Number', errorId: 'phoneError', type: 'tel' }, // Now required
               { id: 'preferredDate', name: 'Preferred Date', errorId: 'dateError', type: 'date' },
               { id: 'preferredTimeSlot', name: 'Preferred Time Slot', errorId: 'timeSlotError' },
               { id: 'interestArea', name: 'Interest Area', errorId: 'interestAreaError' }
@@ -871,6 +941,11 @@
                   errorSpan.textContent = `Please enter a valid email address.`;
                   errorSpan.style.display = 'block';
                   isValid = false;
+              } else if (field.type === 'tel' && input.value.trim() && !/^\+?[0-9\s\-()]{7,20}$/.test(input.value.trim())) {
+                  // Simple phone number validation (adjust regex if needed for strict Australian format)
+                  errorSpan.textContent = `Please enter a valid phone number.`;
+                  errorSpan.style.display = 'block';
+                  isValid = false;
               }
           });
 
@@ -882,7 +957,7 @@
 
           if (selectedDateStr && selectedTimeSlotVal && selectedTimeSlotVal !== 'Other') {
               const selectedDate = new Date(selectedDateStr);
-              // Parse the hour from the time slot string (e.g., "09:00-10:00" -> 9)
+              // Parse the hour from the time slot string (e.g., "09:00-12:00" -> 9)
               let startHour;
               if (selectedTimeSlotVal.includes('Morning')) {
                   startHour = 9;
@@ -922,9 +997,20 @@
               return; // Stop if validation fails
           }
 
+          // Capture form data for the thank you message before reset
+          const submittedName = document.getElementById('fullName').value.split(' ')[0]; // Just first name
+          const submittedDate = new Date(preferredDateInput.value).toLocaleDateString('en-AU', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+          const submittedTime = preferredTimeSlotSelect.value;
+          const submittedInterest = document.getElementById('interestArea').value;
+
           // If client-side validation passes, proceed with Formspree submission
           const form = event.target;
           const formData = new FormData(form);
+
+          // Show a temporary loading state if desired (e.g., disable button, add spinner)
+          const submitButton = form.querySelector('.form-submit-button');
+          submitButton.disabled = true;
+          submitButton.textContent = 'Sending...'; // Or add a spinner icon
 
           try {
               const response = await fetch(form.action, {
@@ -936,13 +1022,21 @@
               });
 
               if (response.ok) {
-                  // Success! You can redirect or show a success message
                   form.reset(); // Clear the form fields
-                  formStatusMessage.textContent = 'Thank you for your message! I will be in touch within 1 business day to confirm your chat time or answer your questions.';
-                  formStatusMessage.style.color = '#28a745'; // Green for success
-                  formStatusMessage.style.display = 'block';
-                  // Optional: Redirect after a delay if you have a separate thank you page for Formspree paid tier
-                  // setTimeout(() => { window.location.href = 'YOUR_CUSTOM_THANK_YOU_PAGE_URL'; }, 2000);
+                  formStatusMessage.style.display = 'none'; // Hide general status message
+
+                  // Populate and show the thank you panel
+                  thankYouName.textContent = submittedName;
+                  thankYouDate.textContent = submittedDate;
+                  thankYouTime.textContent = submittedTime;
+                  thankYouInterest.textContent = submittedInterest;
+
+                  contactForm.style.display = 'none'; // Hide the form
+                  thankYouPanel.classList.add('show'); // Show thank you panel with fade
+
+                  // Optional: Smooth scroll to the top of the contact section for full view
+                  document.getElementById('contact-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
               } else {
                   // Handle HTTP errors
                   const errorData = await response.json();
@@ -953,6 +1047,8 @@
                   formStatusMessage.textContent = errorMessage;
                   formStatusMessage.style.color = '#dc3545'; // Red for error
                   formStatusMessage.style.display = 'block';
+                  submitButton.disabled = false; // Re-enable button
+                  submitButton.textContent = 'Book My Free Chat'; // Reset button text
               }
           } catch (error) {
               // Handle network or other unexpected errors
@@ -960,6 +1056,8 @@
               formStatusMessage.textContent = 'A network error occurred. Please check your internet connection and try again.';
               formStatusMessage.style.color = '#dc3545';
               formStatusMessage.style.display = 'block';
+              submitButton.disabled = false; // Re-enable button
+              submitButton.textContent = 'Book My Free Chat'; // Reset button text
           }
       });
       // --- END FORM BUFFER AND VALIDATION ---
