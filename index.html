@@ -243,7 +243,7 @@
       font-family: 'Oswald', sans-serif;
       font-size: 2.5rem;
       color: #000;
-      margin-bottom: 1rem;
+      margin-bottom: 1rem; /* This is the padding to match expertise */
       animation: slideInLeft 1s ease forwards;
     }
     /* General section title style for new sections */
@@ -260,8 +260,8 @@
         font-size: 2.5rem; /* Matches desktop line1/line2 font size */
         font-weight: 700; /* Oswald weight 700 */
         letter-spacing: 0; /* Remove extra letter spacing for H1 style */
-        text-transform: none; /* Remove uppercase, rely on Oswald's natural strong appearance */
-        margin-bottom: 1.5rem; /* Adjusted for less space below title */
+        text-transform: uppercase; /* Ensure it's uppercase like hero */
+        margin-bottom: 1rem; /* Adjusted to match CTA/Panel h2 padding */
     }
 
 
@@ -723,7 +723,7 @@
   </section>
 
   <section class="contact-section" id="contact-section">
-    <h2 class="section-title">CONTACT</h2> <!-- Changed from "LET'S CONNECT & GROW" to "CONTACT" -->
+    <h2 class="section-title">CONTACT</h2>
     <p>Ready to discuss how Creative365 can help your business thrive?</p>
     <p>Book a <strong>FREE, no-obligation chat</strong> at your preferred time, or send me a message directly. I'm here to answer your questions and explore tailored solutions.</p>
 
@@ -746,9 +746,9 @@
             </div>
 
             <div class="form-group-creative">
-                <label for="phoneNumber">Your Phone Number*</label> <!-- Made required -->
+                <label for="phoneNumber">Your Phone Number*</label>
                 <input type="tel" id="phoneNumber" name="Phone" placeholder="e.g., 04XX XXX XXX" required>
-                <span class="form-error-message" id="phoneError" style="display: none;"></span> <!-- Added error span -->
+                <span class="form-error-message" id="phoneError" style="display: none;"></span>
             </div>
 
             <div class="form-group-creative">
@@ -787,7 +787,8 @@
                 <textarea id="message" name="Message" placeholder="Tell me more about your business and goals..." rows="5"></textarea>
             </div>
 
-            <div class="form-group-creative">
+            <!-- Removed "How did you hear about Creative365?" section -->
+            <!-- <div class="form-group-creative">
                 <label for="howHear">How did you hear about Creative365?</label>
                 <select id="howHear" name="How_Heard">
                     <option value="">Select an option (Optional)</option>
@@ -797,7 +798,7 @@
                     <option value="Online Ad">Online Ad</option>
                     <option value="Other">Other</option>
                 </select>
-            </div>
+            </div> -->
 
             <button type="submit" class="form-submit-button">Book My Free Chat</button>
         </form>
@@ -813,8 +814,8 @@
             </p>
         </div>
 
-        <p class="contact-alternatives"> <!-- Added class for styling -->
-            Prefer to reach out directly?<br> <!-- Line break added here -->
+        <p class="contact-alternatives">
+            Prefer to reach out directly?<br>
             E: <a href="mailto:michael@creative365.info" style="color: #78C976; text-decoration: none;"><b>michael@creative365.info</b></a>
             <br>Or connect on <a href="https://www.linkedin.com/in/patane-michael/" target="_blank" style="color: #78C976; text-decoration: none;">LinkedIn</a>.
         </p>
@@ -894,11 +895,11 @@
       const preferredDateInput = document.getElementById('preferredDate');
       const preferredTimeSlotSelect = document.getElementById('preferredTimeSlot');
       const formStatusMessage = document.getElementById('formStatusMessage');
-      const thankYouPanel = document.getElementById('thankYouPanel'); // New: Thank You Panel
-      const thankYouName = document.getElementById('thankYouName'); // New: Thank You Name Span
-      const thankYouDate = document.getElementById('thankYouDate'); // New: Thank You Date Span
-      const thankYouTime = document.getElementById('thankYouTime'); // New: Thank You Time Span
-      const thankYouInterest = document.getElementById('thankYouInterest'); // New: Thank You Interest Span
+      const thankYouPanel = document.getElementById('thankYouPanel');
+      const thankYouName = document.getElementById('thankYouName');
+      const thankYouDate = document.getElementById('thankYouDate');
+      const thankYouTime = document.getElementById('thankYouTime');
+      const thankYouInterest = document.getElementById('thankYouInterest');
 
       function formatIsoDate(date) {
           const year = date.getFullYear();
@@ -909,22 +910,19 @@
 
       function updateMinDate() {
           const now = new Date();
-          // Set minimum date to tomorrow (start of day + 24 hours from now roughly)
           const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
           preferredDateInput.min = formatIsoDate(tomorrow);
       }
 
       function validateFormFields() {
           let isValid = true;
-          // Clear previous error messages
           document.querySelectorAll('.form-error-message').forEach(el => el.style.display = 'none');
           formStatusMessage.style.display = 'none';
 
-          // Basic Required Field Validation
           const requiredFields = [
               { id: 'fullName', name: 'Name', errorId: 'nameError' },
               { id: 'emailAddress', name: 'Email', errorId: 'emailError', type: 'email' },
-              { id: 'phoneNumber', name: 'Phone Number', errorId: 'phoneError', type: 'tel' }, // Now required
+              { id: 'phoneNumber', name: 'Phone Number', errorId: 'phoneError', type: 'tel' },
               { id: 'preferredDate', name: 'Preferred Date', errorId: 'dateError', type: 'date' },
               { id: 'preferredTimeSlot', name: 'Preferred Time Slot', errorId: 'timeSlotError' },
               { id: 'interestArea', name: 'Interest Area', errorId: 'interestAreaError' }
@@ -942,14 +940,12 @@
                   errorSpan.style.display = 'block';
                   isValid = false;
               } else if (field.type === 'tel' && input.value.trim() && !/^\+?[0-9\s\-()]{7,20}$/.test(input.value.trim())) {
-                  // Simple phone number validation (adjust regex if needed for strict Australian format)
                   errorSpan.textContent = `Please enter a valid phone number.`;
                   errorSpan.style.display = 'block';
                   isValid = false;
               }
           });
 
-          // Date and Time Slot Combined Validation (24-hour buffer)
           const selectedDateStr = preferredDateInput.value;
           const selectedTimeSlotVal = preferredTimeSlotSelect.value;
           const dateErrorSpan = document.getElementById('dateError');
@@ -957,7 +953,6 @@
 
           if (selectedDateStr && selectedTimeSlotVal && selectedTimeSlotVal !== 'Other') {
               const selectedDate = new Date(selectedDateStr);
-              // Parse the hour from the time slot string (e.g., "09:00-12:00" -> 9)
               let startHour;
               if (selectedTimeSlotVal.includes('Morning')) {
                   startHour = 9;
@@ -966,12 +961,10 @@
               } else if (selectedTimeSlotVal.includes('Late Afternoon')) {
                   startHour = 16;
               }
-              selectedDate.setHours(startHour, 0, 0, 0); // Set to start of selected slot
+              selectedDate.setHours(startHour, 0, 0, 0);
 
               const now = new Date();
-              // Add a small buffer (e.g., 23 hours 59 minutes) to current time for comparison
-              // This accounts for time passing between page load and submission
-              const minAllowedTime = new Date(now.getTime() + (24 * 60 * 60 * 1000) - (60 * 1000)); // 24 hours minus 1 minute for buffer
+              const minAllowedTime = new Date(now.getTime() + (24 * 60 * 60 * 1000) - (60 * 1000));
 
               if (selectedDate < minAllowedTime) {
                   dateErrorSpan.textContent = 'Selected date/time must be at least 24 hours in advance.';
@@ -983,84 +976,73 @@
           return isValid;
       }
 
-      // Update min date on load
       updateMinDate();
 
-      // Add event listeners for client-side validation
       contactForm.addEventListener('submit', async function(event) {
-          event.preventDefault(); // Prevent default form submission
+          event.preventDefault();
 
-          // Perform client-side validation
           if (!validateFormFields()) {
               formStatusMessage.textContent = 'Please correct the errors in the form.';
               formStatusMessage.style.display = 'block';
-              return; // Stop if validation fails
+              return;
           }
 
-          // Capture form data for the thank you message before reset
-          const submittedName = document.getElementById('fullName').value.split(' ')[0]; // Just first name
+          const submittedName = document.getElementById('fullName').value.split(' ')[0];
           const submittedDate = new Date(preferredDateInput.value).toLocaleDateString('en-AU', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
           const submittedTime = preferredTimeSlotSelect.value;
           const submittedInterest = document.getElementById('interestArea').value;
 
-          // If client-side validation passes, proceed with Formspree submission
           const form = event.target;
           const formData = new FormData(form);
 
-          // Show a temporary loading state if desired (e.g., disable button, add spinner)
           const submitButton = form.querySelector('.form-submit-button');
           submitButton.disabled = true;
-          submitButton.textContent = 'Sending...'; // Or add a spinner icon
+          submitButton.textContent = 'Sending...';
 
           try {
               const response = await fetch(form.action, {
                   method: form.method,
                   body: formData,
                   headers: {
-                      'Accept': 'application/json' // Important for AJAX submission
+                      'Accept': 'application/json'
                   }
               });
 
               if (response.ok) {
-                  form.reset(); // Clear the form fields
-                  formStatusMessage.style.display = 'none'; // Hide general status message
+                  form.reset();
+                  formStatusMessage.style.display = 'none';
 
-                  // Populate and show the thank you panel
                   thankYouName.textContent = submittedName;
                   thankYouDate.textContent = submittedDate;
                   thankYouTime.textContent = submittedTime;
                   thankYouInterest.textContent = submittedInterest;
 
-                  contactForm.style.display = 'none'; // Hide the form
-                  thankYouPanel.classList.add('show'); // Show thank you panel with fade
+                  contactForm.style.display = 'none';
+                  thankYouPanel.classList.add('show');
 
-                  // Optional: Smooth scroll to the top of the contact section for full view
                   document.getElementById('contact-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
               } else {
-                  // Handle HTTP errors
                   const errorData = await response.json();
                   let errorMessage = 'There was an issue submitting your form. Please try again.';
                   if (errorData.errors) {
                       errorMessage += ' ' + errorData.errors.map(err => err.message).join(' ');
                   }
                   formStatusMessage.textContent = errorMessage;
-                  formStatusMessage.style.color = '#dc3545'; // Red for error
+                  formStatusMessage.style.color = '#dc3545';
                   formStatusMessage.style.display = 'block';
-                  submitButton.disabled = false; // Re-enable button
-                  submitButton.textContent = 'Book My Free Chat'; // Reset button text
+                  submitButton.disabled = false;
+                  submitButton.textContent = 'Book My Free Chat';
               }
           } catch (error) {
-              // Handle network or other unexpected errors
               console.error('Form submission error:', error);
               formStatusMessage.textContent = 'A network error occurred. Please check your internet connection and try again.';
               formStatusMessage.style.color = '#dc3545';
               formStatusMessage.style.display = 'block';
-              submitButton.disabled = false; // Re-enable button
-              submitButton.textContent = 'Book My Free Chat'; // Reset button text
+              submitButton.disabled = false;
+              submitButton.textContent = 'Book My Free Chat';
           }
       });
-      // --- END FORM BUFFER AND VALIDATION ---
     });
   </script>
 </body>
