@@ -117,7 +117,6 @@
       padding-top: 56px; /* Adjust this value to match your header's height */
     }
 
-
     /* Hero Section Styles */
     .hero {
       max-width: 800px;
@@ -257,14 +256,12 @@
         letter-spacing: 1.5px;
     }
 
-
     /* Paragraph and List Item styles */
     .panel p, .cta p, .cta ul li {
       font-size: 1.3rem;
       color: #000;
       animation: slideInLeft 1s ease forwards;
     }
-
     .profile-photo {
       width: 140px;
       height: 140px;
@@ -273,7 +270,6 @@
       margin-bottom: 1.5rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-
     ul {
       list-style: none;
       padding: 0;
@@ -295,17 +291,14 @@
       padding: 4rem 1rem;
       text-align: center;
     }
-
     .faq-section .section-title {
       color: #000000; /* Black heading color */
     }
-
     .faq-container {
       max-width: 800px;
       margin: 0 auto;
       text-align: left;
     }
-
     .faq-item {
       margin-bottom: 1rem;
       border: 1px solid #ddd;
@@ -313,7 +306,6 @@
       overflow: hidden;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle shadow */
     }
-
     .faq-question {
       background-color: #f0f0f0; /* Light grey, similar to JUNK */
       padding: 1rem 1.5rem;
@@ -327,22 +319,18 @@
       transition: background-color 0.3s ease;
       color: #222; /* Dark text for question */
     }
-
     .faq-question:hover {
       background-color: #e0e0e0;
     }
-
     .faq-question::after {
       content: '+';
       font-size: 1.5rem;
       transition: transform 0.3s ease;
     }
-
     .faq-question.active::after {
       content: '-';
       transform: rotate(180deg);
     }
-
     .faq-answer {
       padding: 1rem 1.5rem;
       font-family: 'Nunito Sans', sans-serif;
@@ -354,26 +342,22 @@
       color: #555; /* Slightly lighter text for answer */
     }
 
-    
+    /* Contact Section Styles - MODIFIED */
     .contact-section {
-      background-color: #f7f7f7; /* Changed from green to light grey */
+      background-color: #f7f7f7; /* Light grey background */
       padding: 4rem 1rem;
       text-align: center;
-      color: #222; /* Changed from white to dark text for heading */
+      color: #222; /* Dark text for heading */
     }
-
     .contact-section .section-title {
-        color: #000000; /* Changed from white to black heading color */
+        color: #000000; /* Black heading color */
         margin-bottom: 1.5rem; /* Adjusted for less space */
     }
-
-    /* Added this rule to make the paragraph font size consistent */
     .contact-section p {
         font-size: 1.3rem;
         color: #333; /* Consistent with other main paragraphs */
         margin-bottom: 1rem; /* Adjust margin as needed */
     }
-
     .contact-form-container { /* This will act like the "panel" within the full-width section */
         max-width: 700px; /* Based on ELECTRIC's form width */
         margin: 0 auto;
@@ -384,30 +368,86 @@
         text-align: left;
         color: #222; /* Dark text inside form panel */
     }
-    .contact-form-container .quote-subtext {
-        font-size: 1.3rem; /* Maintained at 1.3rem as it was */
-        color: #666;
-        margin-bottom: 25px;
-        text-align: center; /* Center align subtext */
+    /* New form-group styling for input fields */
+    .form-group-creative {
+        margin-bottom: 1.5rem; /* Space between form fields */
+        text-align: left; /* Ensure labels and inputs align left */
     }
-    
-    
-    .contact-form-container iframe {
-        display: block; /* Ensure iframe behaves like a block element */
-        margin: 0 auto; /* Center the iframe */
-        max-width: 100%; /* Ensure it's responsive */
-        height: 600px; /* Keep the requested height */
-        border-radius: 8px; /* Match form container's border-radius */
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Subtle shadow for iframe */
+    .form-group-creative label {
+        display: block; /* Label on its own line */
+        font-family: 'Roboto', sans-serif; /* Consistent with your navigation/FAQ questions */
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: #333; /* Darker label color */
+        font-size: 1.15rem; /* Match body font size */
+    }
+    .form-group-creative input[type="text"],
+    .form-group-creative input[type="email"],
+    .form-group-creative input[type="tel"],
+    .form-group-creative input[type="date"],
+    .form-group-creative select,
+    .form-group-creative textarea {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border: 1px solid #ccc;
+        border-radius: 6px; /* Slightly more rounded than default inputs */
+        font-size: 1.15rem; /* Match body font size */
+        font-family: 'Nunito Sans', sans-serif;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .form-group-creative input:focus,
+    .form-group-creative select:focus,
+    .form-group-creative textarea:focus {
+        border-color: #78C976; /* Green highlight on focus */
+        box-shadow: 0 0 0 3px rgba(120, 201, 118, 0.3); /* Soft green glow */
+        outline: none;
+    }
+    .form-group-creative textarea {
+        resize: vertical; /* Allow vertical resizing of textarea */
+        min-height: 100px; /* Minimum height for message */
+    }
+    .form-submit-button {
+        background-color: #78C976;
+        color: #fff;
+        border: none;
+        padding: 0.9rem 2.5rem; /* Generous padding for a clear button */
+        font-size: 1.3rem; /* Larger, prominent text */
+        font-family: 'Oswald', sans-serif;
+        text-transform: uppercase;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        width: auto; /* Allow button to size based on content */
+        display: inline-block; /* Ensure it behaves like a block for margin/padding */
+        margin-top: 1rem; /* Space above button */
+    }
+    .form-submit-button:hover {
+        background-color: #5fae60;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.3); /* Slightly more prominent shadow on hover */
+    }
+    .form-error-message {
+        color: #dc3545; /* Bootstrap red for errors */
+        font-size: 0.95rem;
+        margin-top: 0.5rem;
+        display: block; /* Ensure it takes its own line */
     }
 
-    
+    /* Original iframe styling, commented out as we are replacing with custom form */
+    /*.contact-form-container iframe {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        height: 600px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }*/
+
     @media (max-width: 767px) {
       /* Adjust body padding for mobile too */
       body {
         padding-top: 70px; /* Adjust for mobile header height if different */
       }
-
       .hero,
       .panel,
       .cta {
@@ -415,11 +455,9 @@
         margin: 2rem auto;
         padding: 1.5rem;
       }
-
       .desktop-line1, .desktop-line2 {
         display: none;
       }
-
       .mobile-line1, .mobile-line2, .mobile-scroll {
         display: block;
         font-family: 'Oswald', sans-serif;
@@ -438,7 +476,6 @@
         line-height: 1.2;
         margin-bottom: 0.5rem;
       }
-
       .mobile-scroll {
         position: relative;
         overflow: hidden;
@@ -446,45 +483,38 @@
         width: 100%;
         margin: 0 auto;
       }
-
       .scroll-container {
         display: none;
       }
-
       .mobile-scroll .scroll-text {
         width: 100%;
         text-align: center;
         font-size: 2.2rem;
         animation: scrollUpMobile 10s linear infinite;
       }
-
       .mobile-scroll .scroll-text div {
         justify-content: center;
         height: 48px;
       }
-
       @keyframes scrollUpMobile {
         0% { transform: translateY(0); }
         100% { transform: translateY(-50%); }
       }
-
       .hamburger-menu {
         display: flex;
       }
       nav.desktop-nav {
         display: none;
       }
-
       header {
-        padding: 0.8rem 1.5rem; 
-      }
+        padding: 0.8rem 1.5rem;
+       }
       .logo img {
-        height: 30px; 
-      }
+        height: 30px;
+       }
       .logo { /* Rule for logo position on mobile */
         margin-right: auto; /* Pushes the logo to the left */
       }
-
       .hero h1, .panel h2, .cta h2 {
         font-size: 2.2rem;
       }
@@ -492,13 +522,11 @@
         font-size: 1.3rem; /* Consistent with desktop body font size */
       }
       .hero-button {
-        font-size: 1.25rem; 
+        font-size: 1.25rem;
         padding: 0.7rem 1.8rem;
       }
-
-      
       .section-title {
-        font-size: 2.2rem; 
+        font-size: 2.2rem;
         margin-bottom: 1.5rem;
       }
       .faq-section {
@@ -517,18 +545,19 @@
       }
       .contact-form-container {
         padding: 2rem 1.5rem;
-        max-width: 90%; 
-      }
-      
-      .contact-form-container iframe {
-          height: 500px; 
+        max-width: 90%;
+       }
+      .form-submit-button { /* Adjust button size for mobile */
+          padding: 0.8rem 2rem;
+          font-size: 1.2rem;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <a href="#" class="logo">      <img src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" />
+    <a href="#" class="logo">
+      <img src="https://github.com/mmp03patane/creative/blob/main/Creative%20logo.JPG?raw=true" alt="Creative365 Logo" />
     </a>
     <div class="hamburger-menu" onclick="toggleMobileMenu()">
       <div class="bar"></div>
@@ -549,24 +578,25 @@
     </nav>
   </header>
 
-  <section class="hero" id="hero-section"> <div class="scroll-wrapper desktop-hero">
-    <span class="desktop-line1">LET'S GROW YOUR BUSINESS</span>
-    <div class="desktop-line2">
-      <span>WITH</span>
-      <div class="scroll-container">
-        <div class="scroll-text">
-          <div>INSTAGRAM ADS</div>
-          <div>FACEBOOK ADS</div>
-          <div>GOOGLE ADS</div>
-          <div>A NEW WEBSITE</div>
-          <div>FACEBOOK ADS</div>
-          <div>INSTAGRAM ADS</div>
-          <div>GOOGLE ADS</div>
-          <div>A NEW WEBSITE</div>
+  <section class="hero" id="hero-section">
+    <div class="scroll-wrapper desktop-hero">
+      <span class="desktop-line1">LET'S GROW YOUR BUSINESS</span>
+      <div class="desktop-line2">
+        <span>WITH</span>
+        <div class="scroll-container">
+          <div class="scroll-text">
+            <div>INSTAGRAM ADS</div>
+            <div>FACEBOOK ADS</div>
+            <div>GOOGLE ADS</div>
+            <div>A NEW WEBSITE</div>
+            <div>FACEBOOK ADS</div>
+            <div>INSTAGRAM ADS</div>
+            <div>GOOGLE ADS</div>
+            <div>A NEW WEBSITE</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
     <div class="scroll-wrapper mobile-hero">
       <span class="mobile-line1">LET'S GROW YOUR</span>
@@ -585,49 +615,32 @@
       </div>
     </div>
 
-    <p style="font-style: italic;">🚀 Looking for more leads? <br> More predictable revenue? <br> 
-Then let’s build a system that keeps the phone ringing and the cashflow steady.</p>
-
+    <p style="font-style: italic;">🚀 Looking for more leads? <br> More predictable revenue? <br> Then let’s build a system that keeps the phone ringing and the cashflow steady.</p>
     <p><strong>Book a FREE chat now</strong></p>
-
     <p>Pick a time that suits 👇</p>
-
-    <button class="hero-button" onclick="window.location.href='#contact-section'">Let's Chat</button> </section>
-
-  <section class="panel" id="about-section"> <img src="https://github.com/mmp03patane/creative/blob/main/PROFILE%20PHOTO%203.PNG?raw=true" alt="Your Photo" class="profile-photo" />
-
-    <p>Hey everyone, <br><br>
-
-I'm <b>Michael Patane</b>, and I run <b>Creative365:</b>
-
-      <i>A business consultancy that helps residential service businesses grow.</i><br><br>
-
-I’ve worked with some of the biggest companies in Australia:<br><br>
-
-At <b>GLG</b>, I clocked up <b>hundreds of consulting hours</b> helping service based businesses with anything from franchising advice to lead generation. Electricians, plumbers, gardeners, painters, and general trades.
-      <br>
-      I've seen it all...
-<br><br>
-At <b>Jim’s Group</b>, I helped streamline onboarding operations for franchisees.
-      <br>
-      I hosted a monthly lecture teaching mowing franchisees how to use technology to <b>quote</b>, <b>schedule</b> and <b>invoice</b> clients.
-<br><br>
-At <b>MYOB</b>, I assisted medium sized businesses to engage digitally and drive adoption through education. I focused on <b>internal efficiencies</b> to <b>elevate customer success experiences</b>.
-<br><br>
-And now, with <b>Creative365</b>, I help service based business grow by designing <b>customer acquisition</b> and <b>retention</b> strategies that generate <b>predictable revenue</b>.</p>
-
+    <button class="hero-button" onclick="window.location.href='#contact-section'">Let's Chat</button>
   </section>
 
-  <section class="cta" id="expertise-section"> <h2 class="section-title">EXPERTISE</h2> <p>
-As your business consultant, I can help you grow your business via the following:<br><br>
-      
+  <section class="panel" id="about-section">
+    <img src="https://github.com/mmp03patane/creative/blob/main/PROFILE%20PHOTO%203.PNG?raw=true" alt="Your Photo" class="profile-photo" />
+    <p>Hey everyone, <br><br>
+      I'm <b>Michael Patane</b>, and I run <b>Creative365:</b>
+      <i>A business consultancy that helps residential service businesses grow.</i><br><br>
+      I’ve worked with some of the biggest companies in Australia:<br><br>
+      At <b>GLG</b>, I clocked up <b>hundreds of consulting hours</b> helping service based businesses with anything from franchising advice to lead generation. Electricians, plumbers, gardeners, painters, and general trades.      <br>
+      I've seen it all...<br><br>At <b>Jim’s Group</b>, I helped streamline onboarding operations for franchisees.      <br>
+      I hosted a monthly lecture teaching mowing franchisees how to use technology to <b>quote</b>, <b>schedule</b> and <b>invoice</b> clients.<br><br>At <b>MYOB</b>, I assisted medium sized businesses to engage digitally and drive adoption through education. I focused on <b>internal efficiencies</b> to <b>elevate customer success experiences</b>.<br><br>And now, with <b>Creative365</b>, I help service based business grow by designing <b>customer acquisition</b> and <b>retention</b> strategies that generate <b>predictable revenue</b>.</p>
+  </section>
+
+  <section class="cta" id="expertise-section">
+    <h2 class="section-title">EXPERTISE</h2>
+    <p>As your business consultant, I can help you grow your business via the following:<br><br>
       <b><u>MARKETING</u></b><br>
       Website building, Lead generation, Email marketing, Google ads, Facebook ads, Instagram ads, Linkedin Ads, Youtube Ads, Sales training, Sales process improvement, Conversion optimization, Competitor analysis.<br><br>
       <b><u>OPERATIONS</u></b><br>
       Internal processes optimization, business coaching, mindset coaching, time and cost saving strategies.<br><br>
       <b><u>RETENTION</u></b><br>
       Customer success, Retention strategies, Repeat customer and loyalty strategies, Advocacy planning.
-
     </p>
   </section>
 
@@ -640,8 +653,7 @@ As your business consultant, I can help you grow your business via the following
       </div>
       <div class="faq-item">
         <div class="faq-question">How can we work together?</div>
-        <div class="faq-answer">You have two main options. 1. Advisory Only: I provide strategic advice and a clear action plan, but you handle the implementation.
-2. Done-For-You: I handle both the strategy and execution, so you can stay focused on running your business.</div>
+        <div class="faq-answer">You have two main options. 1. Advisory Only: I provide strategic advice and a clear action plan, but you handle the implementation.2. Done-For-You: I handle both the strategy and execution, so you can stay focused on running your business.</div>
       </div>
       <div class="faq-item">
         <div class="faq-question">What does “advisory only” mean?</div>
@@ -659,14 +671,89 @@ As your business consultant, I can help you grow your business via the following
   </section>
 
   <section class="contact-section" id="contact-section">
-    <h2 class="section-title">CONTACT</h2>
-    <p>If you've got any questions feel free to reach out.<br><br>
-E: <a href="mailto:michael@creative365.info"><b>michael@creative365.info</b></a><br>
-Connect with me on <a href="https://www.linkedin.com/in/patane-michael/" target="_blank">LinkedIn</a>.<br><br>
-Or book a quick phone call via my Google Calendar below — whatever works best for you.<br><br>     
-    </p>
+    <h2 class="section-title">LET'S CONNECT & GROW</h2>
+    <p>Ready to discuss how Creative365 can help your business thrive?</p>
+    <p>Book a **free, no-obligation chat** at your preferred time, or send me a message directly. I'm here to answer your questions and explore tailored solutions.</p>
+
     <div class="contact-form-container">
-        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3AgJLV95DsanjqZg-EruNwyU4GBaNJPOcxtvDgDUeLV8qOmTaQIuKAh5WT2BRZtIVv0iWXd59u?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+        <!-- Add a message container for form success/error -->
+        <div id="formStatusMessage" class="form-error-message" style="display: none; text-align: center; margin-bottom: 1.5rem;"></div>
+
+        <!-- REPLACE 'YOUR_FORMSPREE_ENDPOINT_URL' with your actual Formspree endpoint -->
+        <!-- Example: https://formspree.io/f/xyza123 -->
+        <form id="creative365ContactForm" method="POST" action="YOUR_FORMSPREE_ENDPOINT_URL">
+            <div class="form-group-creative">
+                <label for="fullName">Your Full Name*</label>
+                <input type="text" id="fullName" name="Name" placeholder="John Smith" required>
+                <span class="form-error-message" id="nameError" style="display: none;"></span>
+            </div>
+
+            <div class="form-group-creative">
+                <label for="emailAddress">Your Email Address*</label>
+                <input type="email" id="emailAddress" name="Email" placeholder="john.smith@example.com" required>
+                <span class="form-error-message" id="emailError" style="display: none;"></span>
+            </div>
+
+            <div class="form-group-creative">
+                <label for="phoneNumber">Your Phone Number (Optional)</label>
+                <input type="tel" id="phoneNumber" name="Phone" placeholder="e.g., 04XX XXX XXX">
+            </div>
+
+            <div class="form-group-creative">
+                <label for="preferredDate">Preferred Date for a Call*</label>
+                <input type="date" id="preferredDate" name="Preferred_Date" required>
+                <span class="form-error-message" id="dateError" style="display: none;"></span>
+            </div>
+
+            <div class="form-group-creative">
+                <label for="preferredTimeSlot">Preferred Time Slot*</label>
+                <select id="preferredTimeSlot" name="Preferred_Time_Slot" required>
+                    <option value="">Select a time slot</option>
+                    <option value="Morning (9 AM - 12 PM AEST)">Morning (9 AM - 12 PM AEST)</option>
+                    <option value="Afternoon (1 PM - 4 PM AEST)">Afternoon (1 PM - 4 PM AEST)</option>
+                    <option value="Late Afternoon (4 PM - 5 PM AEST)">Late Afternoon (4 PM - 5 PM AEST)</option>
+                    <option value="Other">Other (Please specify in message)</option>
+                </select>
+                <span class="form-error-message" id="timeSlotError" style="display: none;"></span>
+            </div>
+
+            <div class="form-group-creative">
+                <label for="interestArea">What are you most interested in discussing?*</label>
+                <select id="interestArea" name="Interest_Area" required>
+                    <option value="">Select an area</option>
+                    <option value="Marketing & Lead Generation">Marketing & Lead Generation (Ads, SEO)</option>
+                    <option value="Website Design & Development">Website Design & Development</option>
+                    <option value="Business Consulting & Operations">Business Consulting & Operations</option>
+                    <option value="Customer Retention Strategies">Customer Retention Strategies</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                </select>
+                <span class="form-error-message" id="interestAreaError" style="display: none;"></span>
+            </div>
+
+            <div class="form-group-creative">
+                <label for="message">Your Message / Project Details</label>
+                <textarea id="message" name="Message" placeholder="Tell me more about your business and goals..." rows="5"></textarea>
+            </div>
+
+            <div class="form-group-creative">
+                <label for="howHear">How did you hear about Creative365?</label>
+                <select id="howHear" name="How_Heard">
+                    <option value="">Select an option (Optional)</option>
+                    <option value="Google Search">Google Search</option>
+                    <option value="Social Media (LinkedIn/Facebook)">Social Media (LinkedIn/Facebook)</option>
+                    <option value="Referral">Referral</option>
+                    <option value="Online Ad">Online Ad</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <button type="submit" class="form-submit-button">Book My Free Chat</button>
+        </form>
+
+        <p style="margin-top: 1.5rem; font-size: 1rem; color: #555;">
+            Prefer to reach out directly? E: <a href="mailto:michael@creative365.info" style="color: #78C976; text-decoration: none;"><b>michael@creative365.info</b></a>
+            <br>Or connect on <a href="https://www.linkedin.com/in/patane-michael/" target="_blank" style="color: #78C976; text-decoration: none;">LinkedIn</a>.
+        </p>
     </div>
   </section>
 
@@ -675,13 +762,12 @@ Or book a quick phone call via my Google Calendar below — whatever works best 
       document.getElementById("mobileNav").classList.toggle("open");
     }
 
-    // FAQ Toggle Functionality
+    // --- NEW JAVASCRIPT FOR FORM HANDLING & DATE BUFFER ---
     document.addEventListener('DOMContentLoaded', () => {
       // --- FIX 1: Force scroll to top on initial page load/refresh ---
       window.scrollTo(0, 0);
 
       const faqQuestions = document.querySelectorAll('.faq-question');
-
       faqQuestions.forEach(question => {
         question.addEventListener('click', () => {
           const answer = question.nextElementSibling;
@@ -701,18 +787,15 @@ Or book a quick phone call via my Google Calendar below — whatever works best 
             e.preventDefault();
 
             const targetId = this.getAttribute('href');
-
-            // If the target is just "#" (or "#top" if you use it), scroll to (0,0)
             if (targetId === '#') {
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
                 });
             } else {
-                // For other section links, scroll to them with an offset for the fixed header
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    const headerOffset = document.querySelector('header').offsetHeight; // Get current header height
+                    const headerOffset = document.querySelector('header').offsetHeight;
                     const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                     const offsetPosition = elementPosition - headerOffset;
 
@@ -722,8 +805,6 @@ Or book a quick phone call via my Google Calendar below — whatever works best 
                     });
                 }
             }
-
-            // Close mobile menu if open
             if (document.getElementById("mobileNav").classList.contains("open")) {
                 toggleMobileMenu();
             }
@@ -733,19 +814,155 @@ Or book a quick phone call via my Google Calendar below — whatever works best 
       // --- Header Scroll Behavior ---
       let lastScrollY = window.scrollY;
       const header = document.querySelector('header');
-      const headerHeight = header.offsetHeight; // Get the header's actual height
-
+      const headerHeight = header.offsetHeight;
       window.addEventListener('scroll', () => {
         if (window.scrollY > lastScrollY && window.scrollY > headerHeight) {
-          // Scrolling down and past the header height
           header.classList.add('hidden');
         } else if (window.scrollY < lastScrollY) {
-          // Scrolling up
           header.classList.remove('hidden');
         }
         lastScrollY = window.scrollY;
       });
       // --- End Header Scroll Behavior ---
+
+      // --- FORM BUFFER AND VALIDATION (CLIENT-SIDE) ---
+      const contactForm = document.getElementById('creative365ContactForm');
+      const preferredDateInput = document.getElementById('preferredDate');
+      const preferredTimeSlotSelect = document.getElementById('preferredTimeSlot');
+      const formStatusMessage = document.getElementById('formStatusMessage');
+
+      function formatIsoDate(date) {
+          const year = date.getFullYear();
+          const month = String(date.getMonth() + 1).padStart(2, '0');
+          const day = String(date.getDate()).padStart(2, '0');
+          return `${year}-${month}-${day}`;
+      }
+
+      function updateMinDate() {
+          const now = new Date();
+          // Set minimum date to tomorrow (start of day + 24 hours from now roughly)
+          const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+          preferredDateInput.min = formatIsoDate(tomorrow);
+      }
+
+      function validateFormFields() {
+          let isValid = true;
+          // Clear previous error messages
+          document.querySelectorAll('.form-error-message').forEach(el => el.style.display = 'none');
+          formStatusMessage.style.display = 'none';
+
+          // Basic Required Field Validation
+          const requiredFields = [
+              { id: 'fullName', name: 'Name', errorId: 'nameError' },
+              { id: 'emailAddress', name: 'Email', errorId: 'emailError', type: 'email' },
+              { id: 'preferredDate', name: 'Preferred Date', errorId: 'dateError', type: 'date' },
+              { id: 'preferredTimeSlot', name: 'Preferred Time Slot', errorId: 'timeSlotError' },
+              { id: 'interestArea', name: 'Interest Area', errorId: 'interestAreaError' }
+          ];
+
+          requiredFields.forEach(field => {
+              const input = document.getElementById(field.id);
+              const errorSpan = document.getElementById(field.errorId);
+              if (!input.value.trim()) {
+                  errorSpan.textContent = `${field.name} is required.`;
+                  errorSpan.style.display = 'block';
+                  isValid = false;
+              } else if (field.type === 'email' && !/\S+@\S+\.\S+/.test(input.value)) {
+                  errorSpan.textContent = `Please enter a valid email address.`;
+                  errorSpan.style.display = 'block';
+                  isValid = false;
+              }
+          });
+
+          // Date and Time Slot Combined Validation (24-hour buffer)
+          const selectedDateStr = preferredDateInput.value;
+          const selectedTimeSlotVal = preferredTimeSlotSelect.value;
+          const dateErrorSpan = document.getElementById('dateError');
+          const timeSlotErrorSpan = document.getElementById('timeSlotError');
+
+          if (selectedDateStr && selectedTimeSlotVal && selectedTimeSlotVal !== 'Other') {
+              const selectedDate = new Date(selectedDateStr);
+              // Parse the hour from the time slot string (e.g., "09:00-10:00" -> 9)
+              let startHour;
+              if (selectedTimeSlotVal.includes('Morning')) {
+                  startHour = 9;
+              } else if (selectedTimeSlotVal.includes('Afternoon')) {
+                  startHour = 13;
+              } else if (selectedTimeSlotVal.includes('Late Afternoon')) {
+                  startHour = 16;
+              }
+              selectedDate.setHours(startHour, 0, 0, 0); // Set to start of selected slot
+
+              const now = new Date();
+              // Add a small buffer (e.g., 23 hours 59 minutes) to current time for comparison
+              // This accounts for time passing between page load and submission
+              const minAllowedTime = new Date(now.getTime() + (24 * 60 * 60 * 1000) - (60 * 1000)); // 24 hours minus 1 minute for buffer
+
+              if (selectedDate < minAllowedTime) {
+                  dateErrorSpan.textContent = 'Selected date/time must be at least 24 hours in advance.';
+                  dateErrorSpan.style.display = 'block';
+                  isValid = false;
+              }
+          }
+
+          return isValid;
+      }
+
+      // Update min date on load
+      updateMinDate();
+
+      // Add event listeners for client-side validation
+      contactForm.addEventListener('submit', async function(event) {
+          event.preventDefault(); // Prevent default form submission
+
+          // Perform client-side validation
+          if (!validateFormFields()) {
+              formStatusMessage.textContent = 'Please correct the errors in the form.';
+              formStatusMessage.style.display = 'block';
+              return; // Stop if validation fails
+          }
+
+          // If client-side validation passes, proceed with Formspree submission
+          const form = event.target;
+          const formData = new FormData(form);
+
+          try {
+              const response = await fetch(form.action, {
+                  method: form.method,
+                  body: formData,
+                  headers: {
+                      'Accept': 'application/json' // Important for AJAX submission
+                  }
+              });
+
+              if (response.ok) {
+                  // Success! You can redirect or show a success message
+                  form.reset(); // Clear the form fields
+                  formStatusMessage.textContent = 'Thank you for your message! I will be in touch within 1 business day to confirm your chat time or answer your questions.';
+                  formStatusMessage.style.color = '#28a745'; // Green for success
+                  formStatusMessage.style.display = 'block';
+                  // Optional: Redirect after a delay if you have a separate thank you page for Formspree paid tier
+                  // setTimeout(() => { window.location.href = 'YOUR_CUSTOM_THANK_YOU_PAGE_URL'; }, 2000);
+              } else {
+                  // Handle HTTP errors
+                  const errorData = await response.json();
+                  let errorMessage = 'There was an issue submitting your form. Please try again.';
+                  if (errorData.errors) {
+                      errorMessage += ' ' + errorData.errors.map(err => err.message).join(' ');
+                  }
+                  formStatusMessage.textContent = errorMessage;
+                  formStatusMessage.style.color = '#dc3545'; // Red for error
+                  formStatusMessage.style.display = 'block';
+              }
+          } catch (error) {
+              // Handle network or other unexpected errors
+              console.error('Form submission error:', error);
+              formStatusMessage.textContent = 'A network error occurred. Please check your internet connection and try again.';
+              formStatusMessage.style.color = '#dc3545';
+              formStatusMessage.style.display = 'block';
+          }
+      });
+      // --- END FORM BUFFER AND VALIDATION ---
     });
   </script>
 </body>
